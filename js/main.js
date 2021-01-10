@@ -2,7 +2,7 @@
 
 const checkbox = document.querySelectorAll('.label input');
 
-document.querySelector('.checkbox__container').addEventListener('mousedown', (ev) => {
+document.querySelector('.checkbox-container').addEventListener('mousedown', (ev) => {
     for (let check of checkbox) {
         if (ev.target == check || ev.target.firstElementChild == check || ev.target.parentElement.firstElementChild == check && check.checked == false) {
             check.parentElement.style.color = '#7943A4';
@@ -10,7 +10,7 @@ document.querySelector('.checkbox__container').addEventListener('mousedown', (ev
     };
 });
 
-document.querySelector('.checkbox__container').addEventListener('click', () => {
+document.querySelector('.checkbox-container').addEventListener('click', () => {
     for (let check of checkbox) {
         if (check.checked == true) {
             check.parentElement.style.color = '#C283F3';
@@ -23,7 +23,7 @@ document.querySelector('.checkbox__container').addEventListener('click', () => {
 
 // Events Swow All Button
 
-const btn = document.querySelector('.events__all__btn');
+const btn = document.querySelector('.button-container__all-events');
 const events = document.querySelectorAll('.event');
 
 btn.addEventListener('click', () => {
@@ -46,7 +46,7 @@ number.mask(selector);
 
 // Validator
 
-new JustValidate('.contacts__form', {
+new JustValidate('.contacts-form', {
     rules: {
         name: {
             required: true,
@@ -109,7 +109,7 @@ function init() {
 
 // Anchors
 
-$('.hero__button').on('click', function(ev) {
+$('.hero-text__button').on('click', function(ev) {
     ev.preventDefault();
     var top = $('#subscribe').offset().top;
     $('html, body').animate({
@@ -117,7 +117,7 @@ $('.hero__button').on('click', function(ev) {
     }, 1000);
 });
 
-$('.nav__about').on('click', function(ev) {
+$('.nav-about').on('click', function(ev) {
   ev.preventDefault();
   var top = $('#about').offset().top;
   $('html, body').animate({
@@ -125,7 +125,7 @@ $('.nav__about').on('click', function(ev) {
   }, 1000);
 });
 
-$('.nav__gallery').on('click', function(ev) {
+$('.nav-gallery').on('click', function(ev) {
   ev.preventDefault();
   var top = $('#gallery').offset().top;
   $('html, body').animate({
@@ -133,7 +133,7 @@ $('.nav__gallery').on('click', function(ev) {
   }, 1000);
 });
 
-$('.nav__catalog').on('click', function(ev) {
+$('.nav-catalog').on('click', function(ev) {
   ev.preventDefault();
   var top = $('#catalog').offset().top;
   $('html, body').animate({
@@ -141,7 +141,7 @@ $('.nav__catalog').on('click', function(ev) {
   }, 1000);
 });
 
-$('.nav__events').on('click', function(ev) {
+$('.nav-events').on('click', function(ev) {
   ev.preventDefault();
   var top = $('#events').offset().top;
   $('html, body').animate({
@@ -149,7 +149,7 @@ $('.nav__events').on('click', function(ev) {
   }, 1000);
 });
 
-$('.nav__public').on('click', function(ev) {
+$('.nav-public').on('click', function(ev) {
   ev.preventDefault();
   var top = $('#public').offset().top;
   $('html, body').animate({
@@ -157,7 +157,7 @@ $('.nav__public').on('click', function(ev) {
   }, 1000);
 });
 
-$('.nav__projects').on('click', function(ev) {
+$('.nav-projects').on('click', function(ev) {
   ev.preventDefault();
   var top = $('#projects').offset().top;
   $('html, body').animate({
@@ -165,7 +165,7 @@ $('.nav__projects').on('click', function(ev) {
   }, 1000);
 });
 
-$('.nav__contacts').on('click', function(ev) {
+$('.nav-contacts').on('click', function(ev) {
   ev.preventDefault();
   var top = $('#contacts').offset().top;
   $('html, body').animate({
@@ -175,7 +175,7 @@ $('.nav__contacts').on('click', function(ev) {
 
 // Projects Swiper
 
-var projectsSwiper = new Swiper('.projects__swiper-container', {
+var projectsSwiper = new Swiper('.projects-swiper-container', {
 
     observer: true,
     observeSlideChildren: true,
@@ -186,8 +186,8 @@ var projectsSwiper = new Swiper('.projects__swiper-container', {
     loop: true,
     loopFillGroupWithBlank: true,
     navigation: {
-        nextEl: '.projects__next',
-        prevEl: '.projects__prev',
+        nextEl: '.projects-next',
+        prevEl: '.projects-prev',
     },
     breakpoints: {
       600: {
@@ -211,7 +211,7 @@ var projectsSwiper = new Swiper('.projects__swiper-container', {
 
 // Gallery Swiper
 
-var gallerySwiper = new Swiper('.gallery__swiper-container', {
+var gallerySwiper = new Swiper('.gallery-swiper-container', {
 
     observer: true,
     observeSlideChildren: true,
@@ -225,8 +225,8 @@ var gallerySwiper = new Swiper('.gallery__swiper-container', {
       type: 'fraction',
     },
     navigation: {
-        nextEl: '.gallery__button__next',
-        prevEl: '.gallery__button__prev',
+        nextEl: '.gallery-button-next',
+        prevEl: '.gallery-button-prev',
     },
     breakpoints: {
       550: {
@@ -253,7 +253,7 @@ var gallerySwiper = new Swiper('.gallery__swiper-container', {
 
 // Events Swiper
 
-var swiper = new Swiper('.events__swiper-container', {
+var swiper = new Swiper('.events-swiper-container', {
   observer: true,
   observeSlideChildren: true,
   observeParents: true,
@@ -282,7 +282,7 @@ $( function() {
 
 // Public Swiper
 
-var publicSwiper = new Swiper('.public__swiper-container', {
+var publicSwiper = new Swiper('.public-swiper-container', {
 
     observer: true,
     observeSlideChildren: true,
@@ -297,8 +297,8 @@ var publicSwiper = new Swiper('.public__swiper-container', {
       type: 'fraction',
     },
     navigation: {
-        nextEl: '.public__button__next',
-        prevEl: '.public__button__prev',
+        nextEl: '.public-button-next',
+        prevEl: '.public-button-prev',
     },
     breakpoints: {
       600: {
@@ -322,25 +322,25 @@ var publicSwiper = new Swiper('.public__swiper-container', {
 
 // Language Focus
 
-const languages = document.querySelectorAll('.language');
+const languages = document.querySelectorAll('.language-container__language');
 
 for (let language of languages) {
     const border = function(event) {
-        if (event.target.classList.contains('language__border')) {return};
+        if (event.target.classList.contains('language_border')) {return};
         for (let lang of languages) {
-            if (lang.classList.contains('language__border')) {
-                lang.classList.remove('language__border');
+            if (lang.classList.contains('language_border')) {
+                lang.classList.remove('language_border');
             };
         };
-        language.classList.add('language__border');
+        language.classList.add('language_border');
     };
     language.addEventListener('click', border);
 };
 
 // Search Field
 
-const searchField = document.querySelector('.nav__search');
-const searchButton = document.querySelector('.search__icon');
+const searchField = document.querySelector('.search-input');
+const searchButton = document.querySelector('.search-button');
 
 searchField.addEventListener('focus', () => {
     searchButton.style.backgroundImage = 'url(../img/search_icon_purple.svg)';
@@ -352,9 +352,9 @@ searchField.addEventListener('blur', () => {
 
 // Header Dropdown
 
-const listItems = document.querySelectorAll('.nav__list__item__second');
-const listItemsContent = document.querySelectorAll('.drop__list__item');
-const navListSecond = document.querySelector('.nav__list__second');
+const listItems = document.querySelectorAll('.nav-list-second__item');
+const listItemsContent = document.querySelectorAll('.nav-list-second__drop-list-item');
+const navListSecond = document.querySelector('.nav-list-second');
 
 for (const item of listItems) {
   item.addEventListener('click', dropdown);
@@ -372,7 +372,7 @@ for (const item of listItems) {
         item.children[1].children[0].classList.remove('drop__anim');
         item.children[1].children[0].classList.add('up__anim');
         item.classList.remove('drop__active');
-        item.children[1].classList.add('events__disable');
+        item.children[1].classList.add('events-disable');
         for (const content of listItemsContent) {
           if (item.children[1].children[0].contains(content)) {
             content.setAttribute('tabindex', '-1');
@@ -386,10 +386,10 @@ for (const item of listItems) {
 function dropdown(ev) {
     let element;
 
-    if (ev.target.classList.contains('nav__list__item__second')) {
+    if (ev.target.classList.contains('nav-list-second__item')) {
         element = ev.target;
     }
-    else if (!ev.target.classList.contains('nav__list__item__second') && ev.target.parentElement.classList.contains('nav__list__item__second')) {
+    else if (!ev.target.classList.contains('nav-list-second__item') && ev.target.parentElement.classList.contains('nav-list-second__item')) {
         element = ev.target.parentElement;
     }
     else return;
@@ -399,7 +399,7 @@ function dropdown(ev) {
     const dropContainer = element.children[1];
     const dropList = element.children[1].children[0];
 
-    dropContainer.classList.toggle('events__disable');
+    dropContainer.classList.toggle('events-disable');
 
     if (dropList.classList.contains('drop__anim')) {
         dropList.classList.remove('drop__anim');
@@ -424,21 +424,21 @@ function dropdown(ev) {
 
 // Catalog List
 
-const artistList = document.querySelector('.period__people');
-const artists = document.querySelectorAll('.period__artist');
+const artistList = document.querySelector('.period-people');
+const artists = document.querySelectorAll('.period-people__artist-span');
 
 artistList.addEventListener('click', changeArtist);
 artistList.addEventListener('keydown', changeArtistKey);
 
 function changeArtist(ev) {
 
-    if (ev.target.classList.contains('period__artist') && !ev.target.classList.contains('active__artist')) {
+    if (ev.target.classList.contains('period-people__artist-span') && !ev.target.classList.contains('active-artist')) {
         for (let artist of artists) {
-            if (artist.classList.contains('active__artist')) {
-                artist.classList.remove('active__artist');
+            if (artist.classList.contains('active-artist')) {
+                artist.classList.remove('active-artist');
             };
         };
-        ev.target.classList.add('active__artist');
+        ev.target.classList.add('active-artist');
 
         const artistImg = document.querySelector('.artist__img');
         const artistName = document.querySelector('.artist__head');
@@ -472,19 +472,19 @@ function changeArtistKey(ev) {
 
 //Header Search
 
-const headerSearch = document.querySelector('.search__icon__1024');
-const headerSearch768 = document.querySelector('.search__icon__768');
-const headerSearch320 = document.querySelector('.search__icon__320');
-const navSearch = document.querySelector('.nav__search__1024');
-const navSearch768 = document.querySelector('.nav__search__768');
-const navSearch320 = document.querySelector('.nav__search__320');
-const cont = document.querySelector('.nav__search__container');
-const cont768 = document.querySelector('.nav__search__container__768');
-const cont320 = document.querySelector('.nav__search__container__320');
-const searchClose768 = document.querySelector('.search__close__768');
-const searchClose320 = document.querySelector('.search__close__320');
-const logoLink = document.querySelector('.logo__link');
-const headerFormBox = document.querySelector('.header__form__container')
+const headerSearch = document.querySelector('.search-button-tablet');
+const headerSearch768 = document.querySelector('.search-button-landscape');
+const headerSearch320 = document.querySelector('.search-button-mobile');
+const navSearch = document.querySelector('.search-input-tablet');
+const navSearch768 = document.querySelector('.search-input-landscape');
+const navSearch320 = document.querySelector('.search-input-mobile');
+const cont = document.querySelector('.search-form');
+const cont768 = document.querySelector('.search-form-landscape');
+const cont320 = document.querySelector('.search-form-mobile');
+const searchClose768 = document.querySelector('.search-close-landscape');
+const searchClose320 = document.querySelector('.search-close-mobile');
+const logoLink = document.querySelector('.logo-container__logo-link');
+const headerFormBox = document.querySelector('.search-form-container')
 
 navSearch.addEventListener('focus', () => {
   headerSearch.classList.add('search__background');
@@ -537,7 +537,7 @@ function searchToggle768(ev) {
     headerSearch768.setAttribute('type', 'submit');
     searchClose768.classList.add('search__visible');
     searchClose768.setAttribute('tabindex', '0');
-    logoLink.classList.add('search__logo__move');
+    logoLink.classList.add('logo-link_move');
     navSearch768.setAttribute('tabindex', '0');
   }
   else {
@@ -546,7 +546,7 @@ function searchToggle768(ev) {
     headerSearch768.setAttribute('type', 'button');
     searchClose768.classList.remove('search__visible');
     searchClose768.setAttribute('tabindex', '-1');
-    logoLink.classList.remove('search__logo__move');
+    logoLink.classList.remove('logo-link_move');
     navSearch768.setAttribute('tabindex', '-1');
   };
 };
@@ -558,7 +558,7 @@ function searchToggle320(ev) {
     headerSearch.setAttribute('type', 'submit');
     searchClose320.classList.add('search__visible');
     searchClose320.setAttribute('tabindex', '0');
-    headerFormBox.classList.add('header__form__container__move');
+    headerFormBox.classList.add('search-form-container_move');
     navSearch320.setAttribute('tabindex', '0');
   }
   else {
@@ -566,7 +566,7 @@ function searchToggle320(ev) {
     headerSearch.setAttribute('type', 'button');
     searchClose320.classList.remove('search__visible');
     searchClose320.setAttribute('tabindex', '-1');
-    headerFormBox.classList.remove('header__form__container__move');
+    headerFormBox.classList.remove('search-form-container_move');
     navSearch320.setAttribute('tabindex', '-1');
   };
 };
@@ -574,14 +574,14 @@ function searchToggle320(ev) {
 //Burger
 
 const burger = document.querySelector('.burger');
-const burgerMenu = document.querySelector('.burger__menu');
-const burgerTabs = document.querySelectorAll('.burger__tab');
+const burgerMenu = document.querySelector('.burger-menu');
+const burgerTabs = document.querySelectorAll('.tab');
 
 function burgerToggle() {
   if (burger.classList.contains('burger__open')) {
     burger.classList.remove('burger__open');
     burger.classList.add('burger__close');
-    burgerMenu.classList.remove('burger__menu__open');
+    burgerMenu.classList.remove('burger-menu_open');
     for (const tab of burgerTabs) {
       tab.setAttribute('tabindex', '-1');
     }
@@ -589,7 +589,7 @@ function burgerToggle() {
   else {
     burger.classList.remove('burger__close');
     burger.classList.add('burger__open');
-    burgerMenu.classList.add('burger__menu__open');
+    burgerMenu.classList.add('burger-menu_open');
     for (const tab of burgerTabs) {
       tab.setAttribute('tabindex', '0');
     }
@@ -610,7 +610,7 @@ burger.addEventListener('focusout', (event) => {
   if (burgerMenu.contains(event.relatedTarget)) {
     return;
   }
-  else if (burgerMenu.classList.contains('burger__menu__open')) {
+  else if (burgerMenu.classList.contains('burger-menu_open')) {
     burgerToggle();
   }
 });
@@ -623,9 +623,9 @@ for (const tab of burgerTabs) {
 
 // Gallery Selector
 
-const gallerySelector = document.querySelector('.gallery__list');
-const items = document.querySelectorAll('.gallery__list__item:not(:first-child');
-const icon = document.querySelector('.gallery__list__item__icon');
+const gallerySelector = document.querySelector('.gallery-filter__list');
+const items = document.querySelectorAll('.gallery-filter__list-item:not(:first-child');
+const icon = document.querySelector('.gallery-filter__list-item-icon');
 
 gallerySelector.addEventListener('click', toggleSelector);
 gallerySelector.addEventListener('click', select);
@@ -660,9 +660,9 @@ function toggleSelector() {
 
 function select(ev) {
 
-    if (ev.target == gallerySelector || ev.target == document.querySelector('.gallery__list__item:first-child')) {return}
+    if (ev.target == gallerySelector || ev.target == document.querySelector('.gallery-filter__list-item:first-child')) {return}
 
-    const firstItem = document.querySelector('.gallery__list__item:first-child');
+    const firstItem = document.querySelector('.gallery-filter__list-item:first-child');
     const choice = ev.target.firstChild.textContent;
     ev.target.firstChild.textContent = firstItem.firstChild.textContent;
     firstItem.firstChild.textContent = choice;
@@ -690,7 +690,7 @@ gallerySelector.addEventListener('focusout', (event) => {
 // Outside The Selectors
 
 window.addEventListener('pointerup', (event) => {
-  if (!burgerMenu.contains(event.target) && event.target != burger && burgerMenu.classList.contains('burger__menu__open')) {
+  if (!burgerMenu.contains(event.target) && event.target != burger && burgerMenu.classList.contains('burger-menu_open')) {
     if (burgerMenu.contains(document.activeElement)) {return}
     burgerToggle()
   };
@@ -698,11 +698,11 @@ window.addEventListener('pointerup', (event) => {
 
 // Mobile Checkbox Spoiler
 
-const checkContainer = document.querySelector('.checkbox__container__320');
-const checkHead = document.querySelector('.check__head');
-const checkList = document.querySelector('.checkbox__list');
-const checkItems = document.querySelectorAll('.checkbox__list__item');
-const checkChoices = document.querySelector('.check__choices__list');
+const checkContainer = document.querySelector('.spoiler');
+const checkHead = document.querySelector('.check-head');
+const checkList = document.querySelector('.checkbox-list');
+const checkItems = document.querySelectorAll('.checkbox');
+const checkChoices = document.querySelector('.spoiler__choices-list');
 
 checkContainer.addEventListener('click', (event) => {
   filterChoice(event);
@@ -721,28 +721,28 @@ checkContainer.addEventListener('keyup', (event) => {
 });
 
 function openSpoiler() {
-  if (!checkList.classList.contains('checkbox__list__open')) {
-    checkList.classList.add('checkbox__list__open');
-    checkHead.classList.add('check__head__active');
+  if (!checkList.classList.contains('checkbox-list_open')) {
+    checkList.classList.add('checkbox-list_open');
+    checkHead.classList.add('check-head_active');
     for (const item of checkItems) {
       item.setAttribute('tabindex', '0');
     };
     const filters = document.querySelectorAll('.choices__list__item');
-    const filtersList = document.querySelector('.check__choices__list');
+    const filtersList = document.querySelector('.spoiler__choices-list');
     if (filtersList.children[0]) {
       for (const filter of filters) {
         filter.setAttribute('tabindex', '-1');
       };
     };
   }
-  else if (checkList.classList.contains('checkbox__list__open')) {
-    checkList.classList.remove('checkbox__list__open');
-    checkHead.classList.remove('check__head__active');
+  else if (checkList.classList.contains('checkbox-list_open')) {
+    checkList.classList.remove('checkbox-list_open');
+    checkHead.classList.remove('check-head_active');
     for (const item of checkItems) {
       item.setAttribute('tabindex', '-1');
     };
     const filters = document.querySelectorAll('.choices__list__item');
-    const filtersList = document.querySelector('.check__choices__list');
+    const filtersList = document.querySelector('.spoiler__choices-list');
     if (filtersList.children[0]) {
       for (const filter of filters) {
         filter.setAttribute('tabindex', '0');
@@ -780,7 +780,7 @@ checkContainer.addEventListener('focusout', (event) => {
   if (checkContainer.contains(event.relatedTarget)) {
     return;
   };
-  if (!checkList.classList.contains('checkbox__list__open')) {
+  if (!checkList.classList.contains('checkbox-list_open')) {
     return;
   };
   if (!event.relatedTarget) {
@@ -806,6 +806,13 @@ tippy('#secondTooltip', {
 });
 
 tippy('#thirdTooltip', {
+  content: 'В стремлении повысить качество',
+  maxWidth: 264,
+  offset: [0, 12],
+  theme: 'light',
+});
+
+tippy('#fourthTooltip', {
   content: 'В стремлении повысить качество',
   maxWidth: 264,
   offset: [0, 12],
