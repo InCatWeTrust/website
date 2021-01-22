@@ -29,75 +29,54 @@
 	<!--Header-->
 
 	<header class="header">
-
-    <!--1024-->
-
-    <div class="container nav-container tablet">
-      <button class="burger" aria-label="Бургер"></button>
-      <div class="burger-menu">
-        <ul class="nav-list">
-          <li class="nav-list__item"><a tabindex="-1" class="nav-list__item-link nav-about tab" href="">О нас</a></li>
-          <li class="nav-list__item"><a tabindex="-1" class="nav-list__item-link nav-gallery tab" href="">Галерея</a></li>
-          <li class="nav-list__item"><a tabindex="-1" class="nav-list__item-link nav-catalog tab" href="">Каталог</a></li>
-          <li class="nav-list__item"><a tabindex="-1" class="nav-list__item-link nav-events tab" href="">События</a></li>
-          <li class="nav-list__item"><a tabindex="-1" class="nav-list__item-link nav-public tab" href="">Издания</a></li>
-          <li class="nav-list__item"><a tabindex="-1" class="nav-list__item-link nav-projects tab" href="">Проекты</a></li>
-          <li class="nav-list__item"><a tabindex="-1" class="nav-list__item-link nav-contacts tab" href="">Контакты</a></li>
-        </ul>
-        <a tabindex="-1" class="login-header-link tab" href="">Войти</a>
-      </div>
-      <div class="logo-container mobile_hide">
-        <a href="" class="logo-container__logo-link mobile_hide"><img src="img/logo_1024.svg" alt="Logo"></a>
-      </div>
-      <div class="logo-container mobile">
-        <a href="" class="logo-container__logo-link mobile"><img src="img/logo_320.svg" alt="Logo"></a>
-      </div>
-      <div class="search-form-container">
-
-        <!--320-->
-
-        <form tabindex="-1" class="search-form-mobile mobile_flex">
-          <button class="search-button-mobile" type="button" value=""></button>
-          <input tabindex="-1" type="text" class="search-input-mobile" placeholder="Поиск по сайту">
-          <button tabindex="-1" class="search-close search-close-mobile"></button>
-        </form>
-
-        <!--768-->
-
-        <form tabindex="-1" class="search-form-landscape landscape_flex mobile_hide">
-          <button class="search-button-landscape" type="button" value=""></button>
-          <input tabindex="-1" type="text" class="search-input-landscape" placeholder="Поиск по сайту">
-          <button tabindex="-1" class="search-close search-close-landscape"></button>
-        </form>
-
-        <!---->
-
-        <form tabindex="-1" class="search-form landscape_hide">
-          <button class="search-button-tablet" type="button" value=""></button>
-          <input tabindex="-1" type="text" class="search-input-tablet" placeholder="Поиск по сайту">
-        </form>
-      </div>
-    </div>
-
-		<!--Desktop-->
-
-		<nav class="nav desktop">
+		<nav class="nav">
 			<div class="nav-first-row">
 				<div class="container nav-container">
-					<a class="logo-container__logo-link" href=""><img src="img/logo_header.svg" alt="Logo"></a>
-					<ul class="nav-list">
-						<li class="nav-list__item"><a class="nav-list__item-link nav-about" href="">О нас</a></li>
-						<li class="nav-list__item"><a class="nav-list__item-link nav-gallery" href="">Галерея</a></li>
-						<li class="nav-list__item"><a class="nav-list__item-link nav-catalog" href="">Каталог</a></li>
-						<li class="nav-list__item"><a class="nav-list__item-link nav-events" href="">События</a></li>
-						<li class="nav-list__item"><a class="nav-list__item-link nav-public" href="">Издания</a></li>
-						<li class="nav-list__item"><a class="nav-list__item-link nav-projects" href="">Проекты</a></li>
-						<li class="nav-list__item"><a class="nav-list__item-link nav-contacts" href="">Контакты</a></li>
-					</ul>
-					<a class="login-header-link" href="">Войти</a>
+          <button class="burger tablet" aria-label="Бургер"></button>
+          <h1 class="visually-hidden">Blanchard - художественная галерея</h1>
+					<div class="logo-container">
+						<a class="logo-container__logo-link" href=""><img src="img/logo_header.svg" alt="Logo"></a>
+          </div>
+          <div class="nav-menu">
+					  <ul class="nav-list">
+					  	<li class="nav-list__item"><a class="nav-list__item-link nav-about" href="">О нас</a></li>
+					  	<li class="nav-list__item"><a class="nav-list__item-link nav-gallery" href="">Галерея</a></li>
+					  	<li class="nav-list__item"><a class="nav-list__item-link nav-catalog" href="">Каталог</a></li>
+					  	<li class="nav-list__item"><a class="nav-list__item-link nav-events" href="">События</a></li>
+					  	<li class="nav-list__item"><a class="nav-list__item-link nav-public" href="">Издания</a></li>
+					  	<li class="nav-list__item"><a class="nav-list__item-link nav-projects" href="">Проекты</a></li>
+					  	<li class="nav-list__item"><a class="nav-list__item-link nav-contacts" href="">Контакты</a></li>
+					  </ul>
+            <a class="login-header-link" href="">Войти</a>
+          </div>
+          <div class="search-form-container tablet">
+
+            <!--320-->
+
+            <form tabindex="-1" class="search-form-mobile mobile_flex">
+              <button class="search-button-mobile" type="button" value=""></button>
+              <input tabindex="-1" type="text" class="search-input-mobile" placeholder="Поиск по сайту">
+              <button tabindex="-1" class="search-close search-close-mobile"></button>
+            </form>
+
+            <!--768-->
+
+            <form tabindex="-1" class="search-form-landscape landscape_flex mobile_hide">
+              <button class="search-button-landscape" type="button" value=""></button>
+              <input tabindex="-1" type="text" class="search-input-landscape" placeholder="Поиск по сайту">
+              <button tabindex="-1" class="search-close search-close-landscape"></button>
+            </form>
+
+            <!---->
+
+            <form tabindex="-1" class="search-form landscape_hide">
+              <button class="search-button-tablet" type="button" value=""></button>
+              <input tabindex="-1" type="text" class="search-input-tablet" placeholder="Поиск по сайту">
+            </form>
+          </div>
 				</div>
 			</div>
-			<div class="nav-second-row">
+			<div class="nav-second-row desktop">
 				<div class="container nav-container">
 					<ul class="nav-list-second">
 						<li tabindex="0" class="nav-list-second__item">
@@ -218,9 +197,9 @@
 		</div>
 		<div class="container">
 			<div class="hero-text">
-				<h1 class="hero-text__head">
+				<h2 class="hero-text__head">
 					Прикоснитесь к прекрасному
-				</h1>
+				</h2>
 				<p class="hero-text__description">
 					Мы вынуждены отталкиваться от того, что реализация намеченных плановых заданий создаёт предпосылки для новых предложений.
 				</p>
@@ -228,30 +207,37 @@
 			</div>
 		</div>
 
-		<!--About Us-->
+    <!--About Us-->
 
-		<div class="container about-container">
-			<h2 id="about" class="about-container__head">
-				О нас
-			</h2>
-			<p class="about-container__description">
-				Ясность нашей позиции очевидна: семантический разбор внешних противодействий однозначно определяет каждого участника как способного принимать собственные решения касаемо распределения внутренних резервов и ресурсов. Не следует, однако, забывать, что высококачественный прототип будущего проекта влечет за собой процесс внедрения и модернизации модели развития. Повседневная практика показывает, что высокое качество позиционных исследований создаёт необходимость включения в производственный план целого ряда внеочередных мероприятий с учётом комплекса распределения внутренних резервов и ресурсов. В рамках спецификации современных стандартов, действия представителей оппозиции набирают популярность среди определенных слоев населения, а значит, должны быть разоблачены.
-			</p>
-		</div>
+    <section>
+		  <div class="container about-container">
+		  	<h2 id="about" class="about-container__head">
+		  		О нас
+		  	</h2>
+		  	<p class="about-container__description">
+		  		Ясность нашей позиции очевидна: семантический разбор внешних противодействий однозначно определяет каждого участника как способного принимать собственные решения касаемо распределения внутренних резервов и ресурсов. Не следует, однако, забывать, что высококачественный прототип будущего проекта влечет за собой процесс внедрения и модернизации модели развития. Повседневная практика показывает, что высокое качество позиционных исследований создаёт необходимость включения в производственный план целого ряда внеочередных мероприятий с учётом комплекса распределения внутренних резервов и ресурсов. В рамках спецификации современных стандартов, действия представителей оппозиции набирают популярность среди определенных слоев населения, а значит, должны быть разоблачены.
+		  	</p>
+      </div>
+    </section>
 
 		<!--Gallery-->
 
-		<div class="gallery-background">
+		<section class="gallery-section">
 			<div class="container gallery-container">
-				<div class="gallery-filter">
-					<h2 id="gallery" class="gallery-filter__head">Галерея</h2>
-					<p class="gallery-filter__text">Фильтровать по:</p>
-					<ul tabindex="0" class="gallery-filter__list">
-						<li class="gallery-filter__list-item">Автор<img class="gallery-filter__list-item-icon" src="img/header_second_row_icon.svg" alt=""></li>
-						<li tabindex="-1" class="gallery-filter__list-item hide">Направление</li>
-						<li tabindex="-1" class="gallery-filter__list-item hide">Техника</li>
-					</ul>
-				</div>
+        <div class="gallery-select-container">
+				  <div class="gallery-filter">
+				  	<h2 id="gallery" class="gallery-filter__head">Галерея</h2>
+				  	<p class="gallery-filter__text">Фильтровать по:</p>
+				  	<ul tabindex="0" class="gallery-filter__list">
+				  		<li class="gallery-filter__list-item">Автор<img class="gallery-filter__list-item-icon" src="img/header_second_row_icon.svg" alt=""></li>
+				  		<li tabindex="-1" class="gallery-filter__list-item hide">Направление</li>
+				  		<li tabindex="-1" class="gallery-filter__list-item hide">Техника</li>
+				  	</ul>
+          </div>
+          <div class="gallery-description landscape_hide">
+            Вам предоставляется 10 бесплатных скачиваний. Для увеличения количества скачиваний <a class="gallery-description__link" href="">авторизуйтесь,</a> либо воспользуйтесь лицензией.
+          </div>
+        </div>
 				<div class="gallery">
 					<div class="gallery-swipe">
 						<button class="swipe-button gallery-button-prev"></button>
@@ -281,258 +267,323 @@
 						</div>
 					</div>
 				</div>
-				<div class="gallery-description">
+				<div class="gallery-description landscape">
 					Вам предоставляется 10 бесплатных скачиваний. Для увеличения количества скачиваний <a class="gallery-description__link" href="">авторизуйтесь,</a> либо воспользуйтесь лицензией.
 				</div>
 			</div>
-		</div>
+		</section>
 
 		<!--Catalog-->
 
-		<div class="container catalog-container">
-			<div class="catalog">
-				<div class="language-container">
-					<h2 id="catalog" class="language-container__head">Каталог</h2>
-					<button class="language-container__language france" aria-label="Выбор страны - Франция"></button>
-					<button class="language-container__language germany" aria-label="Выбор страны - Германия"></button>
-					<button class="language-container__language italy" aria-label="Выбор страны - Италия"></button>
-					<button class="language-container__language russia" aria-label="Выбор страны - Россия"></button>
-					<button class="language-container__language belgium" aria-label="Выбор страны - Бельгия"></button>
-				</div>
-				<p class="catalog-description mobile_hide">
-					Акционеры крупнейших компаний, которые представляют собой яркий пример континентально-европейского типа политической культуры, будут объявлены нарушающими общечеловеческие нормы этики и морали. Являясь всего лишь частью общей картины, стремящиеся вытеснить традиционное производство, нанотехнологии и по сей день остаются уделом либералов, которые жаждут быть функционально разнесены на независимые элементы.
-				</p>
-			</div>
-			<div class="artist-container">
-				<div class="artist">
-					<img class="artist__img" src="img/Domenico.jpg" alt="">
-					<h3 class="artist__head">Доменико Гирландайо</h3>
-					<p class="artist__date">2 июня 1448 — 11 января 1494.</p>
-					<p class="artist__description">
-						Один из ведущих флорентийских художников Кватроченто, основатель художественной династии, которую продолжили его брат Давид и сын Ридольфо. Глава художественной мастерской, где юный Микеланджело в течение года овладевал профессиональными навыками. Автор фресковых циклов, в которых выпукло, со всевозможными подробностями показана домашняя жизнь библейских персонажей (в их роли выступают знатные граждане Флоренции в костюмах того времени).
-					</p>
-				</div>
-				<div id="accordion" class="period">
-					<h3 class="period__head"><span class="period__head-span">C 1400 по 1499 гг.</span><span class="period-head__circle"></span></h3>
-					<div>
-						<ul class="period-people">
-							<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Бенедетто ди Биндо</span></li>
-							<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Бергоньоне, Амброджо</span></li>
-							<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Биссоло, Франческо</span></li>
-							<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Больтраффио, Джованни</span></li>
-							<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Бонсиньори, Франческо</span></li>
-							<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Боттичини, Рафаэлло</span></li>
-							<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Брамантино</span></li>
-							<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Бреа, Людовико</span></li>
-							<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Бьяджо д’Антонио Туччи</span></li>
-							<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Веккьетта</span></li>
-							<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Андреа Верроккьо</span></li>
-							<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span active-artist">Доменико Гирландайо</span></li>
-							<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Беноццо Гоццоли</span></li>
-							<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Граначчи, Франческо</span></li>
-							<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Грегорио ди Чекко</span></li>
-							<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Джованни да Удине</span></li>
-							<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Джованни ди Паоло</span></li>
-							<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Джорджоне</span></li>
-							<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Парентино, Бернардо</span></li>
-							<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Пезеллино</span></li>
-							<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Пьетро Перуджино</span></li>
-							<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Перуцци, Бальдассаре</span></li>
-							<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Пизанелло</span></li>
-							<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Пинтуриккьо</span></li>
-						</ul>
-					</div>
-					<h3 class="period__head"><span class="period__head-span">C 1500 по 1599 гг.</span><span class="period-head__circle"></span></h3>
-					<div class="period-people">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam cum placeat nostrum maxime recusandae vitae consequatur eligendi repellat libero hic totam ipsum est nihil vero eos quo, voluptatibus perferendis voluptates.
-          </div>
-					<h3 class="period__head"><span class="period__head-span">C 1600 по 1699 гг.</span><span class="period-head__circle"></span></h3>
-					<div class="period-people">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed placeat culpa velit vitae distinctio, similique et possimus non ratione fugit eum nemo fuga, totam iusto voluptate, exercitationem mollitia pariatur ex?
-					</div>
-					<h3 class="period__head"><span class="period__head-span">C 1700 по 1799 гг.</span><span class="period-head__circle"></span></h3>
-					<div class="period-people">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam blanditiis quidem iusto, nobis laudantium, corporis aliquam eius libero eveniet fugit temporibus qui consectetur soluta itaque repellat dolor voluptate. Quos, expedita.
-					</div>
-					<h3 class="period__head"><span class="period__head-span">C 1800 по 1899 гг.</span><span class="period-head__circle"></span></h3>
-					<div class="period-people">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla deserunt laborum, dolorum ipsam sint tempora, unde consequatur maiores repudiandae maxime quo ea eos dolores distinctio autem, eligendi cupiditate doloribus doloremque.
-					</div>
-					<h3 class="period__head"><span class="period__head-span">C 1900 по 1999 гг.</span><span class="period-head__circle"></span></h3>
-					<div class="period-people">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea dolores nostrum obcaecati hic expedita assumenda dolorum quia. Obcaecati, culpa pariatur, enim odit doloremque aperiam optio tempore sed vero aliquam sunt.
-					</div>
-					<h3 class="period__head"><span class="period__head-span">C 2000 г.</span><span class="period-head__circle"></span></h3>
-					<div class="period-people">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum accusamus consequatur labore velit perferendis, eos quis adipisci, est nisi in fuga rem a corrupti molestias! Nesciunt pariatur repellat unde veritatis.
-					</div>
-				</div>
-			</div>
-		</div>
+    <section>
+		  <div class="container catalog-container">
+		  	<div class="catalog">
+		  		<div class="language-container">
+		  			<h2 id="catalog" class="language-container__head">Каталог</h2>
+		  			<button class="language-container__language france" aria-label="Выбор страны - Франция"></button>
+		  			<button class="language-container__language germany" aria-label="Выбор страны - Германия"></button>
+		  			<button class="language-container__language italy language_border" aria-label="Выбор страны - Италия"></button>
+		  			<button class="language-container__language russia" aria-label="Выбор страны - Россия"></button>
+		  			<button class="language-container__language belgium" aria-label="Выбор страны - Бельгия"></button>
+		  		</div>
+		  		<p class="catalog-description mobile_hide">
+		  			Акционеры крупнейших компаний, которые представляют собой яркий пример континентально-европейского типа политической культуры, будут объявлены нарушающими общечеловеческие нормы этики и морали. Являясь всего лишь частью общей картины, стремящиеся вытеснить традиционное производство, нанотехнологии и по сей день остаются уделом либералов, которые жаждут быть функционально разнесены на независимые элементы.
+		  		</p>
+		  	</div>
+		  	<div class="artist-container">
+		  		<div class="artist">
+		  			<img class="artist__img" src="img/Domenico.jpg" alt="">
+		  			<h3 class="artist__head">Доменико Гирландайо</h3>
+		  			<p class="artist__date">2 июня 1448 — 11 января 1494.</p>
+		  			<p class="artist__description">
+		  				Один из ведущих флорентийских художников Кватроченто, основатель художественной династии, которую продолжили его брат Давид и сын Ридольфо. Глава художественной мастерской, где юный Микеланджело в течение года овладевал профессиональными навыками. Автор фресковых циклов, в которых выпукло, со всевозможными подробностями показана домашняя жизнь библейских персонажей (в их роли выступают знатные граждане Флоренции в костюмах того времени).
+		  			</p>
+		  		</div>
+		  		<div id="accordion" class="period">
+		  			<h3 class="period__head"><span class="period__head-span">C 1400 по 1499 гг.</span><span class="period-head__circle"></span></h3>
+		  			<div>
+		  				<ul class="period-people period-people-italy">
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Бенедетто ди Биндо</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Бергоньоне, Амброджо</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Биссоло, Франческо</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Больтраффио, Джованни</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Бонсиньори, Франческо</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Боттичини, Рафаэлло</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Брамантино</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Бреа, Людовико</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Бьяджо д’Антонио Туччи</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Веккьетта</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Андреа Верроккьо</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span active-artist">Доменико Гирландайо</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Беноццо Гоццоли</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Граначчи, Франческо</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Грегорио ди Чекко</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Джованни да Удине</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Джованни ди Паоло</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Джорджоне</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Парентино, Бернардо</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Пезеллино</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Пьетро Перуджино</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Перуцци, Бальдассаре</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Пизанелло</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Пинтуриккьо</span></li>
+              </ul>
+              <ul class="period-people period-people-russia period-people_hidden">
+                <li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Граначчи, Франческо</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Грегорио ди Чекко</span></li>
+                <li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Доменико Гирландайо</span></li>
+                <li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Биссоло, Франческо</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Больтраффио, Джованни</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Бонсиньори, Франческо</span></li>
+              </ul>
+              <ul class="period-people period-people-france period-people_hidden">
+                <li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Беноццо Гоццоли</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Граначчи, Франческо</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Грегорио ди Чекко</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Джованни да Удине</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Джованни ди Паоло</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Джорджоне</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Парентино, Бернардо</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Пезеллино</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Пьетро Перуджино</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Перуцци, Бальдассаре</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Пизанелло</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Пинтуриккьо</span></li>
+              </ul>
+              <ul class="period-people period-people-germany period-people_hidden">
+                <li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Бенедетто ди Биндо</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Бергоньоне, Амброджо</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Биссоло, Франческо</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Больтраффио, Джованни</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Бонсиньори, Франческо</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Боттичини, Рафаэлло</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Брамантино</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Бреа, Людовико</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Бьяджо д’Антонио Туччи</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Веккьетта</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Андреа Верроккьо</span></li>
+              </ul>
+              <ul class="period-people period-people-belgium period-people_hidden">
+                <li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Боттичини, Рафаэлло</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Брамантино</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Бреа, Людовико</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Бьяджо д’Антонио Туччи</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Веккьетта</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Андреа Верроккьо</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Доменико Гирландайо</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Беноццо Гоццоли</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Граначчи, Франческо</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Грегорио ди Чекко</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Джованни да Удине</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Джованни ди Паоло</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Джорджоне</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Парентино, Бернардо</span></li>
+		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Пезеллино</span></li>
+              </ul>
+		  			</div>
+            <h3 class="period__head"><span class="period__head-span">C 1500 по 1599 гг.</span><span class="period-head__circle"></span></h3>
+            <div>
+		  			  <div class="period-people period-people-italy">
+                Diversa e ricca esperienza, crescita costante e portata della nostra attività è un interessante esperimento in ulteriori  direzioni di sviluppo. Non va dimenticato, tuttavia, che la struttura esistente dell'organizzazione gioca nell'oblio che la  struttura esistente gioca un ruolo importante nel plasmare
+              </div>
+              <div class="period-people period-people-russia period-people_hidden">
+                Разнообразный и богатый опыт постоянный рост и сфера нашей активности представляет интересный эксперимент дальнейших направлений  развития. Не следует, однако забывать, что сложившаяся структура организации играет вабывать, что сложившаяся структура играет   важную роль в формировании
+              </div>
+              <div class="period-people period-people-france period-people_hidden">
+                Une expérience diversifiée et riche, une croissance constante et l'étendue de notre activité est une expérience intéressante dans d'autres directions de développement. Il ne faut cependant pas oublier que la structure existante de l'organisation joue en arrière-plan le fait que la structure existante joue un rôle important dans l'élaboration
+              </div>
+              <div class="period-people period-people-germany period-people_hidden">
+                Vielfältige und reiche Erfahrung, ständiges Wachstum und Umfang unserer Aktivitäten sind ein interessantes Experiment in weiteren Entwicklungsrichtungen. Es sollte jedoch nicht vergessen werden, dass die bestehende Struktur der Organisation eine wichtige Rolle bei der Bildung der bestehenden Struktur spielt.
+              </div>
+              <div class="period-people period-people-belgium period-people_hidden">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem hic itaque minus doloremque explicabo vitae consequatur! Corrupti fugiat aut ipsa, libero et tempora. Reiciendis earum doloremque fugit aspernatur, provident commodi?
+              </div>
+            </div>
+            <h3 class="period__head"><span class="period__head-span">C 1600 по 1699 гг.</span><span class="period-head__circle"></span></h3>
+            <div>
+		  			  <div class="period-people period-people-italy">
+                Diversa e ricca esperienza, crescita costante e portata della nostra attività è un interessante esperimento in ulteriori  direzioni di sviluppo. Non va dimenticato, tuttavia, che la struttura esistente dell'organizzazione gioca nell'oblio che la  struttura esistente gioca un ruolo importante nel plasmare
+              </div>
+              <div class="period-people period-people-russia period-people_hidden">
+                Разнообразный и богатый опыт постоянный рост и сфера нашей активности представляет интересный эксперимент дальнейших направлений  развития. Не следует, однако забывать, что сложившаяся структура организации играет вабывать, что сложившаяся структура играет   важную роль в формировании
+              </div>
+              <div class="period-people period-people-france period-people_hidden">
+                Une expérience diversifiée et riche, une croissance constante et l'étendue de notre activité est une expérience intéressante dans d'autres directions de développement. Il ne faut cependant pas oublier que la structure existante de l'organisation joue en arrière-plan le fait que la structure existante joue un rôle important dans l'élaboration
+              </div>
+              <div class="period-people period-people-germany period-people_hidden">
+                Vielfältige und reiche Erfahrung, ständiges Wachstum und Umfang unserer Aktivitäten sind ein interessantes Experiment in weiteren Entwicklungsrichtungen. Es sollte jedoch nicht vergessen werden, dass die bestehende Struktur der Organisation eine wichtige Rolle bei der Bildung der bestehenden Struktur spielt.
+              </div>
+              <div class="period-people period-people-belgium period-people_hidden">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem hic itaque minus doloremque explicabo vitae consequatur! Corrupti fugiat aut ipsa, libero et tempora. Reiciendis earum doloremque fugit aspernatur, provident commodi?
+              </div>
+            </div>
+            <h3 class="period__head"><span class="period__head-span">C 1700 по 1799 гг.</span><span class="period-head__circle"></span></h3>
+            <div>
+		  			  <div class="period-people period-people-italy">
+                Diversa e ricca esperienza, crescita costante e portata della nostra attività è un interessante esperimento in ulteriori  direzioni di sviluppo. Non va dimenticato, tuttavia, che la struttura esistente dell'organizzazione gioca nell'oblio che la  struttura esistente gioca un ruolo importante nel plasmare
+              </div>
+              <div class="period-people period-people-russia period-people_hidden">
+                Разнообразный и богатый опыт постоянный рост и сфера нашей активности представляет интересный эксперимент дальнейших направлений  развития. Не следует, однако забывать, что сложившаяся структура организации играет вабывать, что сложившаяся структура играет   важную роль в формировании
+              </div>
+              <div class="period-people period-people-france period-people_hidden">
+                Une expérience diversifiée et riche, une croissance constante et l'étendue de notre activité est une expérience intéressante dans d'autres directions de développement. Il ne faut cependant pas oublier que la structure existante de l'organisation joue en arrière-plan le fait que la structure existante joue un rôle important dans l'élaboration
+              </div>
+              <div class="period-people period-people-germany period-people_hidden">
+                Vielfältige und reiche Erfahrung, ständiges Wachstum und Umfang unserer Aktivitäten sind ein interessantes Experiment in weiteren Entwicklungsrichtungen. Es sollte jedoch nicht vergessen werden, dass die bestehende Struktur der Organisation eine wichtige Rolle bei der Bildung der bestehenden Struktur spielt.
+              </div>
+              <div class="period-people period-people-belgium period-people_hidden">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem hic itaque minus doloremque explicabo vitae consequatur! Corrupti fugiat aut ipsa, libero et tempora. Reiciendis earum doloremque fugit aspernatur, provident commodi?
+              </div>
+            </div>
+            <h3 class="period__head"><span class="period__head-span">C 1800 по 1899 гг.</span><span class="period-head__circle"></span></h3>
+            <div>
+		  			  <div class="period-people period-people-italy">
+                Diversa e ricca esperienza, crescita costante e portata della nostra attività è un interessante esperimento in ulteriori  direzioni di sviluppo. Non va dimenticato, tuttavia, che la struttura esistente dell'organizzazione gioca nell'oblio che la  struttura esistente gioca un ruolo importante nel plasmare
+              </div>
+              <div class="period-people period-people-russia period-people_hidden">
+                Разнообразный и богатый опыт постоянный рост и сфера нашей активности представляет интересный эксперимент дальнейших направлений  развития. Не следует, однако забывать, что сложившаяся структура организации играет вабывать, что сложившаяся структура играет   важную роль в формировании
+              </div>
+              <div class="period-people period-people-france period-people_hidden">
+                Une expérience diversifiée et riche, une croissance constante et l'étendue de notre activité est une expérience intéressante dans d'autres directions de développement. Il ne faut cependant pas oublier que la structure existante de l'organisation joue en arrière-plan le fait que la structure existante joue un rôle important dans l'élaboration
+              </div>
+              <div class="period-people period-people-germany period-people_hidden">
+                Vielfältige und reiche Erfahrung, ständiges Wachstum und Umfang unserer Aktivitäten sind ein interessantes Experiment in weiteren Entwicklungsrichtungen. Es sollte jedoch nicht vergessen werden, dass die bestehende Struktur der Organisation eine wichtige Rolle bei der Bildung der bestehenden Struktur spielt.
+              </div>
+              <div class="period-people period-people-belgium period-people_hidden">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem hic itaque minus doloremque explicabo vitae consequatur! Corrupti fugiat aut ipsa, libero et tempora. Reiciendis earum doloremque fugit aspernatur, provident commodi?
+              </div>
+            </div>
+            <h3 class="period__head"><span class="period__head-span">C 1900 по 1999 гг.</span><span class="period-head__circle"></span></h3>
+            <div>
+		  			  <div class="period-people period-people-italy">
+                Diversa e ricca esperienza, crescita costante e portata della nostra attività è un interessante esperimento in ulteriori  direzioni di sviluppo. Non va dimenticato, tuttavia, che la struttura esistente dell'organizzazione gioca nell'oblio che la  struttura esistente gioca un ruolo importante nel plasmare
+              </div>
+              <div class="period-people period-people-russia period-people_hidden">
+                Разнообразный и богатый опыт постоянный рост и сфера нашей активности представляет интересный эксперимент дальнейших направлений  развития. Не следует, однако забывать, что сложившаяся структура организации играет вабывать, что сложившаяся структура играет   важную роль в формировании
+              </div>
+              <div class="period-people period-people-france period-people_hidden">
+                Une expérience diversifiée et riche, une croissance constante et l'étendue de notre activité est une expérience intéressante dans d'autres directions de développement. Il ne faut cependant pas oublier que la structure existante de l'organisation joue en arrière-plan le fait que la structure existante joue un rôle important dans l'élaboration
+              </div>
+              <div class="period-people period-people-germany period-people_hidden">
+                Vielfältige und reiche Erfahrung, ständiges Wachstum und Umfang unserer Aktivitäten sind ein interessantes Experiment in weiteren Entwicklungsrichtungen. Es sollte jedoch nicht vergessen werden, dass die bestehende Struktur der Organisation eine wichtige Rolle bei der Bildung der bestehenden Struktur spielt.
+              </div>
+              <div class="period-people period-people-belgium period-people_hidden">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem hic itaque minus doloremque explicabo vitae consequatur! Corrupti fugiat aut ipsa, libero et tempora. Reiciendis earum doloremque fugit aspernatur, provident commodi?
+              </div>
+            </div>
+            <h3 class="period__head"><span class="period__head-span">C 2000 г.</span><span class="period-head__circle"></span></h3>
+            <div>
+		  			  <div class="period-people period-people-italy">
+                Diversa e ricca esperienza, crescita costante e portata della nostra attività è un interessante esperimento in ulteriori  direzioni di sviluppo. Non va dimenticato, tuttavia, che la struttura esistente dell'organizzazione gioca nell'oblio che la  struttura esistente gioca un ruolo importante nel plasmare
+              </div>
+              <div class="period-people period-people-russia period-people_hidden">
+                Разнообразный и богатый опыт постоянный рост и сфера нашей активности представляет интересный эксперимент дальнейших направлений  развития. Не следует, однако забывать, что сложившаяся структура организации играет вабывать, что сложившаяся структура играет   важную роль в формировании
+              </div>
+              <div class="period-people period-people-france period-people_hidden">
+                Une expérience diversifiée et riche, une croissance constante et l'étendue de notre activité est une expérience intéressante dans d'autres directions de développement. Il ne faut cependant pas oublier que la structure existante de l'organisation joue en arrière-plan le fait que la structure existante joue un rôle important dans l'élaboration
+              </div>
+              <div class="period-people period-people-germany period-people_hidden">
+                Vielfältige und reiche Erfahrung, ständiges Wachstum und Umfang unserer Aktivitäten sind ein interessantes Experiment in weiteren Entwicklungsrichtungen. Es sollte jedoch nicht vergessen werden, dass die bestehende Struktur der Organisation eine wichtige Rolle bei der Bildung der bestehenden Struktur spielt.
+              </div>
+              <div class="period-people period-people-belgium period-people_hidden">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem hic itaque minus doloremque explicabo vitae consequatur! Corrupti fugiat aut ipsa, libero et tempora. Reiciendis earum doloremque fugit aspernatur, provident commodi?
+              </div>
+            </div>
+		  		</div>
+		  	</div>
+      </div>
+    </section>
 
 		<!--Events-->
 
-		<div class="container events-container">
-      <h2 id="events" class="events-container__head">События</h2>
+    <section>
+		  <div class="container events-container">
+        <h2 id="events" class="events-container__head">События</h2>
 
-      <!--320-->
+        <!-- Events Swiper -->
 
-      <div class="events-swiper-container mobile">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <div class="event">
-              <img class="event__img" src="img/event_img_1.jpg" alt="">
-              <div class="event__museum">
-                <p>Музей им. Щусева</p> <p>с 20 марта по 30 апреля</p>
-              </div>
-              <h3 class="event__head">Книжная гравюра в живом восприятии</h3>
-              <p class="event__description event__description-first desktop landscape">
-                Один из ведущих флорентийских художников Кватроченто, основатель художественной династии, которую продолжили его брат Давид и сын Ридольфо. Глава...
-              </p>
-              <a class="event__more" href="">Подробнее</a>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="event">
-              <img class="event__img" src="img/event_img_2.jpg" alt="">
-              <div class="event__museum">
-                <p>ММОМА</p> <p>24 марта 19:00</p>
-              </div>
-              <h3 class="event__head">«Открытая дискуссия». Дмитрий Петров и Сергей Ильин.</h3>
-              <p class="event__description tablet">
-                Высокий уровень вовлечения представителей целевой аудитории является четким доказательством простого факта: постоянный...
-              </p>
-              <a class="event__more" href="">Подробнее</a>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="event">
-              <img class="event__img" src="img/event_img_3.jpg" alt="">
-              <div class="event__museum">
-                <p>Еврейский музей</p> <p>с 31 марта по 21 апреля</p>
-              </div>
-              <h3 class="event__head">Выставка «Формация 2020»</h3>
-              <p class="event__description tablet">
-                Идейные соображения высшего порядка, а также современная методология разработки играет важную роль в формировании глубокомысленных рассуждений. Также как перспективное...
-              </p>
-              <a class="event__more" href="">Подробнее</a>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="event">
-              <img class="event__img" src="img/event_img_4.jpg" alt="">
-              <div class="event__museum">
-                <p>Третьяковка на Крымском валу</p> <p>с 30 марта по 30 апреля</p>
-              </div>
-              <h3 class="event__head">XXIV Международная биеннале молодого искусства</h3>
-              <p class="event__description tablet">
-                Внезапно, реплицированные с зарубежных источников, современные исследования представляют собой не...
-              </p>
-              <a class="event__more" href="">Подробнее</a>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="event">
-              <img class="event__img" src="img/event_img_5.jpg" alt="">
-              <div class="event__museum">
-                <p>ММАМ</p> <p>с 8 апреля по 20 мая</p>
-              </div>
-              <h3 class="event__head">Джон Винзор. Фотографии из серии «Метафора серебра»</h3>
-              <p class="event__description tablet">
-                Один из ведущих флорентийских художников Кватроченто, основатель художественной династии, которую продолжили его брат Давид и сын...
-              </p>
-              <a class="event__more" href="">Подробнее</a>
-            </div>
-          </div>
+        <div class="events-swiper-container" data-mobile="false">
+          <ul class="swiper-wrapper events">
+            <li class="event">
+                <img class="event__img" src="img/event_img_1.jpg" alt="">
+                <div class="event__museum">
+                  <p>Музей им. Щусева</p> <p>с 20 марта по 30 апреля</p>
+                </div>
+                <div class="event__text-container">
+                  <h3 class="event__head event__head_margin">Книжная гравюра в живом восприятии</h3>
+                  <p class="event__description">
+                    Один из ведущих флорентийских художников Кватроченто, основатель художественной династии, которую продолжили его брат Давид и сын Ридольфо. Глава...
+                  </p>
+                  <a class="event__more" href="">Подробнее</a>
+                </div>
+            </li>
+            <li class="event">
+                <img class="event__img" src="img/event_img_2.jpg" alt="">
+                <div class="event__museum">
+                  <p>ММОМА</p> <p>24 марта 19:00</p>
+                </div>
+                <div class="event__text-container">
+                  <h3 class="event__head">«Открытая дискуссия». Дмитрий Петров и Сергей Ильин.</h3>
+                  <p class="event__description">
+                    Высокий уровень вовлечения представителей целевой аудитории является четким доказательством простого факта: постоянный...
+                  </p>
+                  <a class="event__more" href="">Подробнее</a>
+                </div>
+            </li>
+            <li class="event event_hidden_768">
+                <img class="event__img" src="img/event_img_3.jpg" alt="">
+                <div class="event__museum">
+                  <p>Еврейский музей</p> <p>с 31 марта по 21 апреля</p>
+                </div>
+                <div class="event__text-container">
+                  <h3 class="event__head">Выставка «Формация 2020»</h3>
+                  <p class="event__description">
+                    Идейные соображения высшего порядка, а также современная методология разработки играет важную роль в формировании глубокомысленных рассуждений. Также как перспективное...
+                  </p>
+                  <a class="event__more" href="">Подробнее</a>
+                </div>
+            </li>
+            <li class="event event_hidden">
+                <img class="event__img" src="img/event_img_4.jpg" alt="">
+                <div class="event__museum">
+                  <p>Третьяковка на Крымском валу</p> <p>с 30 марта по 30 апреля</p>
+                </div>
+                <div class="event__text-container">
+                  <h3 class="event__head">XXIV Международная биеннале молодого искусства</h3>
+                  <p class="event__description">
+                    Внезапно, реплицированные с зарубежных источников, современные исследования представляют собой не...
+                  </p>
+                  <a class="event__more" href="">Подробнее</a>
+                </div>
+            </li>
+            <li class="event event_hidden">
+                <img class="event__img" src="img/event_img_5.jpg" alt="">
+                <div class="event__museum">
+                  <p>ММАМ</p> <p>с 8 апреля по 20 мая</p>
+                </div>
+                <div class="event__text-container">
+                  <h3 class="event__head">Джон Винзор. Фотографии из серии «Метафора серебра»</h3>
+                  <p class="event__description">
+                    Один из ведущих флорентийских художников Кватроченто, основатель художественной династии, которую продолжили его брат Давид и сын...
+                  </p>
+                  <a class="event__more" href="">Подробнее</a>
+                </div>
+            </li>
+          </ul>
+          <div class="events-pagination mobile"></div>
         </div>
-        <div class="events-pagination"></div>
+
+        <!---->
+
+		  	<div class="button-container mobile_hide">
+		  		<button class="button-container__all-events"><span>Все события</span></button>
+		  	</div>
       </div>
-
-      <!---->
-
-			<div class="events mobile_hide">
-				<div class="event">
-					<img class="event__img" src="img/event_img_1.jpg" alt="">
-					<div class="event__museum">
-						<p>Музей им. Щусева</p> <p>с 20 марта по 30 апреля</p>
-					</div>
-          <h3 class="event__head">Книжная гравюра в живом восприятии</h3>
-          <p class="event__description desktop landscape">
-						Один из ведущих флорентийских художников Кватроченто, основатель художественной династии, которую продолжили его брат Давид и сын Ридольфо. Глава художественной мастерской...
-					</p>
-          <p class="event__description tablet landscape_hide">
-						Один из ведущих флорентийских художников Кватроченто, основатель художественной династии, которую продолжили его брат Давид и сын Ридольфо. Глава...
-					</p>
-					<p class="event__description desktop">
-						Один из ведущих флорентийских художников Кватроченто, основатель художественной династии, которую продолжили его брат Давид и сын Ридольфо. Глава художественной мастерской, где юный Микеланджело.
-					</p>
-					<a class="event__more" href="">Подробнее</a>
-				</div>
-				<div class="event">
-					<img class="event__img" src="img/event_img_2.jpg" alt="">
-					<div class="event__museum">
-						<p>ММОМА</p> <p>24 марта 19:00</p>
-					</div>
-          <h3 class="event__head">«Открытая дискуссия». Дмитрий Петров и Сергей Ильин.</h3>
-          <p class="event__description tablet">
-						Высокий уровень вовлечения представителей целевой аудитории является четким доказательством простого факта: постоянный...
-					</p>
-					<p class="event__description desktop">
-						Высокий уровень вовлечения представителей целевой аудитории является четким доказательством простого факта: постоянный количественный рост и сфера нашей активности представляет собой интересный эксперимент проверки новых принципов формирования...
-					</p>
-					<a class="event__more" href="">Подробнее</a>
-				</div>
-				<div class="event event__hidden__768">
-					<img class="event__img" src="img/event_img_3.jpg" alt="">
-					<div class="event__museum">
-						<p>Еврейский музей</p> <p>с 31 марта по 21 апреля</p>
-					</div>
-          <h3 class="event__head">Выставка «Формация 2020»</h3>
-          <p class="event__description tablet">
-						Идейные соображения высшего порядка, а также современная методология разработки играет важную роль в формировании глубокомысленных рассуждений. Также как перспективное...
-					</p>
-					<p class="event__description desktop">
-						Идейные соображения высшего порядка, а также современная методология разработки играет важную роль в формировании глубокомысленных рассуждений. Также как перспективное планирование играет определяющее значение для новых принципов формирования материально-технической и кадровой базы.
-					</p>
-					<a class="event__more" href="">Подробнее</a>
-				</div>
-				<div class="event event__hidden">
-					<img class="event__img" src="img/event_img_4.jpg" alt="">
-					<div class="event__museum">
-						<p>Третьяковка на Крымском валу</p> <p>с 30 марта по 30 апреля</p>
-					</div>
-          <h3 class="event__head">XXIV Международная биеннале молодого искусства</h3>
-          <p class="event__description tablet">
-						Внезапно, реплицированные с зарубежных источников, современные исследования представляют собой не...
-					</p>
-					<p class="event__description desktop">
-						Внезапно, реплицированные с зарубежных источников, современные исследования представляют собой не что иное, как квинтэссенцию победы маркетинга над разумом и должны быть рассмотрены исключительно в разрезе маркетинговых и финансовых...
-					</p>
-					<a class="event__more" href="">Подробнее</a>
-				</div>
-				<div class="event event__hidden">
-					<img class="event__img" src="img/event_img_5.jpg" alt="">
-					<div class="event__museum">
-						<p>ММАМ</p> <p>с 8 апреля по 20 мая</p>
-					</div>
-          <h3 class="event__head">Джон Винзор. Фотографии из серии «Метафора серебра»</h3>
-          <p class="event__description tablet">
-						Один из ведущих флорентийских художников Кватроченто, основатель художественной династии, которую продолжили его брат Давид и сын...
-					</p>
-					<p class="event__description desktop">
-						Один из ведущих флорентийских художников Кватроченто, основатель художественной династии, которую продолжили его брат Давид и сын Ридольфо. Глава художественной мастерской, где юный Микеланджело.
-					</p>
-					<a class="event__more" href="">Подробнее</a>
-				</div>
-			</div>
-			<div class="button-container mobile_hide">
-				<button class="button-container__all-events"><span>Все события</span></button>
-			</div>
-		</div>
+    </section>
 
 		<!--Public-->
 
-		<div class="public-background">
+		<section class="public-section">
 			<div class="container public-container">
 				<div class="public-box1">
 					<div class="public">
@@ -905,82 +956,86 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</section>
 
 		<!--Projects-->
 
-		<div class="container projects-container">
-			<h2 id="projects" class="projects-head">Проекты</h2>
-			<div class="projects-description">
-        Предварительные выводы: постоянное информационно-пропагандистское обеспечение нашей деятельности однозначно фиксирует необходимость своевременного выполнения сверхзадачи. А ещё независимые государства смешаны с не уникальными данными до степени совершенной неузнаваемости, из-за чего возрастает их статус бесполезности. Прежде всего, постоянное <span>информационно-пропагандистское</span>
-        <div tabindex="0" id="firstTooltip" class="tooltip"></div>
-         обеспечение нашей деятельности однозначно фиксирует необходимость экономической целесообразности принимаемых решений. И нет сомнений, что действия представителей оппозиции могут быть рассмотрены
-        <div tabindex="0" id="secondTooltip" class="tooltip"></div>
-         исключительно в разрезе маркетинговых и финансовых
-        <div tabindex="0" id="thirdTooltip" class="tooltip mobile_hide"></div>
-         предпосылок. Банальные, но неопровержимые выводы, а также представители современных социальных резервов призывают нас к новым свершениям, которые, в свою очередь, должны быть смешаны с не уникальными
-         <div tabindex="0" id="fourthTooltip" class="tooltip"></div>
-         данными до степени совершенной неузнаваемости. Подробнее: <a class="projects-description__link" href="">blanchard-art.ru/projects/about</a>
-			</div>
-			<h3 class="projects-partners-head">Партнёры проектов:</h3>
-			<div class="projects-partners-container">
-				<div class="projects-swiper-container">
-					<div class="swiper-wrapper">
-						<div class="swiper-slide projects-slide swiper-slide-img1"></div>
-						<div class="swiper-slide projects-slide swiper-slide-img2"></div>
-						<div class="swiper-slide projects-slide swiper-slide-img3"></div>
-						<div class="swiper-slide projects-slide swiper-slide-img4"></div>
-						<div class="swiper-slide projects-slide swiper-slide-img5"></div>
-						<div class="swiper-slide projects-slide swiper-slide-img6"></div>
-						<div class="swiper-slide projects-slide swiper-slide-img7"></div>
-						<div class="swiper-slide projects-slide swiper-slide-img8"></div>
-						<div class="swiper-slide projects-slide swiper-slide-img9"></div>
-					</div>
-					<div class="swiper-button-next projects-next"></div>
-					<div class="swiper-button-prev projects-prev"></div>
-				</div>
-			</div>
-		</div>
+    <section>
+		  <div class="container projects-container">
+		  	<h2 id="projects" class="projects-head">Проекты</h2>
+		  	<div class="projects-description">
+          Предварительные выводы: постоянное информационно-пропагандистское обеспечение нашей деятельности однозначно фиксирует необходимость своевременного выполнения сверхзадачи. А ещё независимые государства смешаны с не уникальными данными до степени совершенной неузнаваемости, из-за чего возрастает их статус бесполезности. Прежде всего, постоянное <span>информационно-пропагандистское</span>
+          <div tabindex="0" id="firstTooltip" class="tooltip"></div>
+           обеспечение нашей деятельности однозначно фиксирует необходимость экономической целесообразности принимаемых решений. И нет сомнений, что действия представителей оппозиции могут быть рассмотрены
+          <div tabindex="0" id="secondTooltip" class="tooltip"></div>
+           исключительно в разрезе маркетинговых и финансовых
+          <div tabindex="0" id="thirdTooltip" class="tooltip mobile_hide"></div>
+           предпосылок. Банальные, но неопровержимые выводы, а также представители современных социальных резервов призывают нас к новым свершениям, которые, в свою очередь, должны быть смешаны с не уникальными
+           <div tabindex="0" id="fourthTooltip" class="tooltip"></div>
+           данными до степени совершенной неузнаваемости. Подробнее: <a class="projects-description__link" href="">blanchard-art.ru/projects/about</a>
+		  	</div>
+		  	<h3 class="projects-partners-head">Партнёры проектов:</h3>
+		  	<div class="projects-partners-container">
+		  		<div class="projects-swiper-container">
+		  			<div class="swiper-wrapper">
+		  				<div class="swiper-slide projects-slide swiper-slide-img1"></div>
+		  				<div class="swiper-slide projects-slide swiper-slide-img2"></div>
+		  				<div class="swiper-slide projects-slide swiper-slide-img3"></div>
+		  				<div class="swiper-slide projects-slide swiper-slide-img4"></div>
+		  				<div class="swiper-slide projects-slide swiper-slide-img5"></div>
+		  				<div class="swiper-slide projects-slide swiper-slide-img6"></div>
+		  				<div class="swiper-slide projects-slide swiper-slide-img7"></div>
+		  				<div class="swiper-slide projects-slide swiper-slide-img8"></div>
+		  				<div class="swiper-slide projects-slide swiper-slide-img9"></div>
+		  			</div>
+		  			<div class="swiper-button-next projects-next"></div>
+		  			<div class="swiper-button-prev projects-prev"></div>
+		  		</div>
+		  	</div>
+      </div>
+    </section>
 
 		<!--Contacts-->
 
-		<div class="container contacts-container">
-      <h2 id="contacts" class="contacts-head">Контакты</h2>
-      <div class="contacts-adress mobile">
-        <h3 class="contacts-adress__room tablet">Шоурум №2</h3>
-        <p class="contacts-adress__street tablet">Покровский бульвар, дом 24, строение 3</p>
-      </div>
-			<div class="contacts-block-container">
-				<div class="contacts-block">
-					<div class="contacts-adress mobile_hide">
-            <h3 class="contacts-adress__room tablet">Шоурум №2</h3>
-            <h3 class="contacts-adress__room desktop">Шоурум №4</h3>
-            <p class="contacts-adress__street tablet">Покровский бульвар, дом 24, строение 3</p>
-						<p class="contacts-adress__street desktop">Леонтьевский переулок, дом 5, строение 1</p>
-          </div>
-					<div class="contacts-form-container">
-						<h3 class="contacts-form-head">Заказать обратный звонок</h3>
-						<form id="subscribe" class="contacts-form">
-							<div class="just-validate-tooltip-container">
-								<input class="contacts-form__input" data-validate-field="name" placeholder="Имя*" type="text" name="name">
-							</div>
-							<div class="just-validate-tooltip-container">
-								<input class="contacts-form__input" data-validate-field="tel" data-validate-rules="phone" placeholder="Телефон*" type="tel" name="tel">
-							</div>
-							<button class="contacts-form__button"><span>Заказать</span></button>
-						</form>
-						<h3 class="contacts-social-head">Связаться в один клик</h3>
-						<div class="contacts-social-container">
-							<a href="https://www.whatsapp.com/" aria-label="Whatsapp" target="blank"><div class="contacts-social social-whatsapp"></div></a>
-							<a href="https://telegram.org/" aria-label="Telegram" target="blank"><div class="contacts-social social-telegram"></div></a>
-						</div>
-					</div>
-				</div>
-				<div id="map" style="width: 1238px; height: 700px">
+    <section>
+		  <div class="container contacts-container">
+        <h2 id="contacts" class="contacts-head">Контакты</h2>
+        <div class="contacts-adress mobile">
+          <h3 class="contacts-adress__room tablet">Шоурум №2</h3>
+          <p class="contacts-adress__street tablet">Покровский бульвар, дом 24, строение 3</p>
+        </div>
+		  	<div class="contacts-block-container">
+		  		<div class="contacts-block">
+		  			<div class="contacts-adress mobile_hide">
+              <h3 class="contacts-adress__room tablet">Шоурум №2</h3>
+              <h3 class="contacts-adress__room desktop">Шоурум №4</h3>
+              <p class="contacts-adress__street tablet">Покровский бульвар, дом 24, строение 3</p>
+		  				<p class="contacts-adress__street desktop">Леонтьевский переулок, дом 5, строение 1</p>
+            </div>
+		  			<div class="contacts-form-container">
+		  				<h3 class="contacts-form-head">Заказать обратный звонок</h3>
+		  				<form id="subscribe" class="contacts-form">
+		  					<div class="just-validate-tooltip-container">
+		  						<input class="contacts-form__input" data-validate-field="name" placeholder="Имя*" type="text" name="name">
+		  					</div>
+		  					<div class="just-validate-tooltip-container">
+		  						<input class="contacts-form__input" data-validate-field="tel" data-validate-rules="phone" placeholder="Телефон*" type="tel" name="tel">
+		  					</div>
+		  					<button class="contacts-form__button"><span>Заказать</span></button>
+		  				</form>
+		  				<h3 class="contacts-social-head">Связаться в один клик</h3>
+		  				<div class="contacts-social-container">
+		  					<a href="https://www.whatsapp.com/" aria-label="Whatsapp" target="blank"><div class="contacts-social social-whatsapp"></div></a>
+		  					<a href="https://telegram.org/" aria-label="Telegram" target="blank"><div class="contacts-social social-telegram"></div></a>
+		  				</div>
+		  			</div>
+		  		</div>
+		  		<div id="map" style="width: 1238px; height: 700px">
 
-				</div>
-			</div>
-		</div>
+		  		</div>
+		  	</div>
+      </div>
+    </section>
 
 	</main>
 
