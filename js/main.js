@@ -28,11 +28,11 @@ const events = document.querySelectorAll('.event');
 
 btn.addEventListener('click', () => {
     for (let event of events) {
-        if (event.classList.contains('event__hidden__768')) {
-          event.classList.remove('event__hidden__768');
+        if (event.classList.contains('event_hidden_768')) {
+          event.classList.remove('event_hidden_768');
         };
-        if (event.classList.contains('event__hidden')) {
-          event.classList.remove('event__hidden');
+        if (event.classList.contains('event_hidden')) {
+          event.classList.remove('event_hidden');
         };
     };
     btn.style.display = 'none';
@@ -239,7 +239,7 @@ var gallerySwiper = new Swiper('.gallery-swiper-container', {
         slidesPerView: 2,
         slidesPerColumn: 2,
         slidesPerGroup: 2,
-        spaceBetween: 35,
+        spaceBetween: 34,
       },
       1600: {
         slidesPerView: 3,
@@ -253,22 +253,45 @@ var gallerySwiper = new Swiper('.gallery-swiper-container', {
 
 // Events Swiper
 
-var swiper = new Swiper('.events-swiper-container', {
-  observer: true,
-  observeSlideChildren: true,
-  observeParents: true,
-  spaceBetween: 10,
-  loop: true,
-  loopFillGroupWithBlank: true,
-  pagination: {
-    el: '.events-pagination',
-  },
-  breakpoints: {
-    620: {
-      slidesPerView: 2,
-      slidesPerGroup: 2,
-    }
-  }
+const eventsSlider = document.querySelector('.events-swiper-container');
+
+let eventsSwiper;
+
+function mobileSwiper() {
+  if (window.innerWidth <= 760 && eventsSlider.dataset.mobile == 'false') {
+      eventsSwiper = new Swiper('.events-swiper-container', {
+      slidesPerView: 1,
+      slidesPerGroup: 1,
+      spaceBetween: 10,
+      loop: true,
+      loopFillGroupWithBlank: true,
+      slideClass: 'event',
+      pagination: {
+        el: '.events-pagination',
+      },
+      breakpoints: {
+        620: {
+          slidesPerView: 2,
+          slidesPerGroup: 2,
+        }
+      }
+    });
+
+    eventsSlider.dataset.mobile = 'true';
+  };
+  if (window.innerWidth > 760) {
+    eventsSlider.dataset.mobile = 'false'
+
+    if (eventsSlider.classList.contains('swiper-container-initialized')) {
+      eventsSwiper.destroy();
+    };
+  };
+};
+
+mobileSwiper();
+
+window.addEventListener('resize', () => {
+  mobileSwiper();
 });
 
 // Accordion
@@ -312,6 +335,16 @@ var publicSwiper = new Swiper('.public-swiper-container', {
         spaceBetween: 53,
       },
       1250: {
+        slidesPerView: 2,
+        slidesPerGroup: 2,
+        spaceBetween: 70,
+      },
+      1400: {
+        slidesPerView: 2,
+        slidesPerGroup: 2,
+        spaceBetween: 30,
+      },
+      1600: {
         slidesPerView: 3,
         slidesPerGroup: 3,
         spaceBetween: 53,
@@ -320,7 +353,7 @@ var publicSwiper = new Swiper('.public-swiper-container', {
 
 });
 
-// Language Focus
+// Language tabs
 
 const languages = document.querySelectorAll('.language-container__language');
 
@@ -334,7 +367,59 @@ for (let language of languages) {
         };
         language.classList.add('language_border');
     };
-    language.addEventListener('click', border);
+    language.addEventListener('click', (ev) => {
+      border(ev);
+      if (ev.target.classList.contains('russia')) {
+        for (const list of artistList) {
+          if (!list.classList.contains('period-people-russia')) {
+            list.classList.add('period-people_hidden');
+          };
+          if (list.classList.contains('period-people-russia')) {
+            list.classList.remove('period-people_hidden');
+          };
+        };
+      }
+      else if (ev.target.classList.contains('italy')) {
+        for (const list of artistList) {
+          if (!list.classList.contains('period-people-italy')) {
+            list.classList.add('period-people_hidden');
+          };
+          if (list.classList.contains('period-people-italy')) {
+            list.classList.remove('period-people_hidden');
+          };
+        };
+      }
+      else if (ev.target.classList.contains('france')) {
+        for (const list of artistList) {
+          if (!list.classList.contains('period-people-france')) {
+            list.classList.add('period-people_hidden');
+          };
+          if (list.classList.contains('period-people-france')) {
+            list.classList.remove('period-people_hidden');
+          };
+        };
+      }
+      else if (ev.target.classList.contains('germany')) {
+        for (const list of artistList) {
+          if (!list.classList.contains('period-people-germany')) {
+            list.classList.add('period-people_hidden');
+          };
+          if (list.classList.contains('period-people-germany')) {
+            list.classList.remove('period-people_hidden');
+          };
+        };
+      }
+      else if (ev.target.classList.contains('belgium')) {
+        for (const list of artistList) {
+          if (!list.classList.contains('period-people-belgium')) {
+            list.classList.add('period-people_hidden');
+          };
+          if (list.classList.contains('period-people-belgium')) {
+            list.classList.remove('period-people_hidden');
+          };
+        };
+      };
+    });
 };
 
 // Search Field
@@ -424,11 +509,13 @@ function dropdown(ev) {
 
 // Catalog List
 
-const artistList = document.querySelector('.period-people');
+const artistList = document.querySelectorAll('.period-people');
 const artists = document.querySelectorAll('.period-people__artist-span');
 
-artistList.addEventListener('click', changeArtist);
-artistList.addEventListener('keydown', changeArtistKey);
+for (const artist of artistList) {
+  artist.addEventListener('click', changeArtist);
+  artist.addEventListener('keydown', changeArtistKey);
+}
 
 function changeArtist(ev) {
 
@@ -456,6 +543,138 @@ function changeArtist(ev) {
             artistName.textContent = 'Доменико Гирландайо';
             artistDate.textContent = '2 июня 1448 — 11 января 1494.';
             artistDescription.textContent = 'Один из ведущих флорентийских художников Кватроченто, основатель художественной династии, которую продолжили его брат Давид и сын Ридольфо. Глава художественной мастерской, где юный Микеланджело в течение года овладевал профессиональными навыками. Автор фресковых циклов, в которых выпукло, со всевозможными подробностями показана домашняя жизнь библейских персонажей (в их роли выступают знатные граждане Флоренции в костюмах того времени).'
+        }
+        else if (ev.target.textContent == 'Веккьетта') {
+          artistImg.src = 'img/gallery_img_2.jpg';
+          artistName.textContent = 'Веккьетта';
+          artistDate.textContent = '2 июня 1448 — 11 января 1476.';
+          artistDescription.textContent = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa molestiae reprehenderit sint aperiam in rem suscipit, nulla quos deserunt totam deleniti vero, autem voluptatibus dolorum delectus eveniet. Labore, ex voluptates.'
+        }
+        else if (ev.target.textContent == 'Беноццо Гоццоли') {
+          artistImg.src = 'img/gallery_img_1.jpg';
+          artistName.textContent = 'Беноццо Гоццоли';
+          artistDate.textContent = '2 июня 1448 — 11 января 1486.';
+          artistDescription.textContent = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa molestiae reprehenderit sint aperiam in rem suscipit, nulla quos deserunt totam deleniti vero. Labore, ex voluptates.'
+        }
+        else if (ev.target.textContent == 'Граначчи, Франческо') {
+          artistImg.src = 'img/gallery_img_3.jpg';
+          artistName.textContent = 'Граначчи, Франческо';
+          artistDate.textContent = '2 июня 1448 — 11 января 1456.';
+          artistDescription.textContent = 'Lorem ipsum elit. Culpa molestiae reprehenderit sint aperiam in rem suscipit, nulla quos deserunt totam deleniti vero, autem voluptatibus dolorum delectus eveniet. Labore, ex voluptates.'
+        }
+        else if (ev.target.textContent == 'Грегорио ди Чекко') {
+          artistImg.src = 'img/gallery_img_4.jpg';
+          artistName.textContent = 'Грегорио ди Чекко';
+          artistDate.textContent = '2 июня 1448 — 11 января 1486.';
+          artistDescription.textContent = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa molestiae reprehenderit sint aperiam in rem suscipit, nulla quos deserunt totam deleniti vero. Labore, ex voluptates.'
+        }
+        else if (ev.target.textContent == 'Джованни да Удине') {
+          artistImg.src = 'img/gallery_img_5.jpg';
+          artistName.textContent = 'Джованни да Удине';
+          artistDate.textContent = '2 июня 1448 — 11 января 1486.';
+          artistDescription.textContent = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa quos deserunt totam deleniti vero, autem voluptatibus dolorum delectus eveniet. Labore, ex voluptates.'
+        }
+        else if (ev.target.textContent == 'Джованни ди Паоло') {
+          artistImg.src = 'img/gallery_img_6.jpg';
+          artistName.textContent = 'Джованни ди Паоло';
+          artistDate.textContent = '2 июня 1448 — 11 января 1466.';
+          artistDescription.textContent = 'Lorem ipsum dolor sit amet. Culpa molestiae reprehenderit sint aperiam in rem suscipit, nulla quos deserunt totam deleniti vero, autem voluptatibus dolorum delectus eveniet. Labore, ex voluptates.'
+        }
+        else if (ev.target.textContent == 'Джорджоне') {
+          artistImg.src = 'img/gallery_img_7.jpg';
+          artistName.textContent = 'Джорджоне';
+          artistDate.textContent = '2 июня 1448 — 11 января 1456.';
+          artistDescription.textContent = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa molestiae reprehenderit dolorum delectus eveniet. Labore, ex voluptates.'
+        }
+        else if (ev.target.textContent == 'Парентино, Бернардо') {
+          artistImg.src = 'img/gallery_img_6.jpg';
+          artistName.textContent = 'Парентино, Бернардо';
+          artistDate.textContent = '2 июня 1448 — 11 января 1467.';
+          artistDescription.textContent = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa consectetur adipisicing elit molestiae reprehenderit dolorum delectus eveniet. Labore, ex voluptates.'
+        }
+        else if (ev.target.textContent == 'Пезеллино') {
+          artistImg.src = 'img/gallery_img_5.jpg';
+          artistName.textContent = 'Пезеллино';
+          artistDate.textContent = '2 июня 1448 — 11 января 1456.';
+          artistDescription.textContent = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa molestiae reprehenderit dolorum delectus eveniet. Labore, ex voluptates.'
+        }
+        else if (ev.target.textContent == 'Пьетро Перуджино') {
+          artistImg.src = 'img/gallery_img_4.jpg';
+          artistName.textContent = 'Пьетро Перуджино';
+          artistDate.textContent = '2 июня 1448 — 11 января 1487.';
+          artistDescription.textContent = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore, ex voluptates. Culpa molestiae reprehenderit dolorum delectus sit amet, consectetur adipisicing sit amet, consectetur adipisicing eveniet. Labore, ex voluptates.'
+        }
+        else if (ev.target.textContent == 'Перуцци, Бальдассаре') {
+          artistImg.src = 'img/gallery_img_3.jpg';
+          artistName.textContent = 'Перуцци, Бальдассаре';
+          artistDate.textContent = '2 июня 1448 — 11 января 1486.';
+          artistDescription.textContent = 'Lorem ipsum dolor consectetur adipisicing sit amet, consectetur adipisicing elit. Culpa molestiae reprehenderit dolorum delectus consectetur adipisicing eveniet. Labore, ex voluptates.'
+        }
+        else if (ev.target.textContent == 'Пизанелло') {
+          artistImg.src = 'img/gallery_img_2.jpg';
+          artistName.textContent = 'Пизанелло';
+          artistDate.textContent = '2 июня 1448 — 11 января 1496.';
+          artistDescription.textContent = 'Lorem ipsum dolor sit molestiae reprehenderit dolorum amet, consectetur adipisicing elit. Culpa molestiae reprehenderit dolorum delectus eveniet. Labore, ex molestiae reprehenderit dolorum voluptates.'
+        }
+        else if (ev.target.textContent == 'Пинтуриккьо') {
+          artistImg.src = 'img/gallery_img_1.jpg';
+          artistName.textContent = 'Пинтуриккьо';
+          artistDate.textContent = '2 июня 1448 — 11 января 1449.';
+          artistDescription.textContent = 'Lorem ipsum dolor consectetur adipisicing elit sit amet, consectetur adipisicing elit. Culpa molestiae reprehenderit dolorum delectus consectetur adipisicing elit eveniet. Labore, ex voluptates.'
+        }
+        else if (ev.target.textContent == 'Бенедетто ди Биндо') {
+          artistImg.src = 'img/gallery_img_1.jpg';
+          artistName.textContent = 'Бенедетто ди Биндо';
+          artistDate.textContent = '2 июня 1448 — 11 января 1486.';
+          artistDescription.textContent = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa molestiae reprehenderit sint aperiam in rem suscipit, nulla quos deserunt totam deleniti vero. Labore, ex voluptates.'
+        }
+        else if (ev.target.textContent == 'Бергоньоне, Амброджо') {
+          artistImg.src = 'img/gallery_img_3.jpg';
+          artistName.textContent = 'Бергоньоне, Амброджо';
+          artistDate.textContent = '2 июня 1448 — 11 января 1456.';
+          artistDescription.textContent = 'Lorem ipsum elit. Culpa molestiae reprehenderit sint aperiam in rem suscipit, nulla quos deserunt totam deleniti vero, autem voluptatibus dolorum delectus eveniet. Labore, ex voluptates.'
+        }
+        else if (ev.target.textContent == 'Биссоло, Франческо') {
+          artistImg.src = 'img/gallery_img_4.jpg';
+          artistName.textContent = 'Биссоло, Франческо';
+          artistDate.textContent = '2 июня 1448 — 11 января 1486.';
+          artistDescription.textContent = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa molestiae reprehenderit sint aperiam in rem suscipit, nulla quos deserunt totam deleniti vero. Labore, ex voluptates.'
+        }
+        else if (ev.target.textContent == 'Больтраффио, Джованни') {
+          artistImg.src = 'img/gallery_img_5.jpg';
+          artistName.textContent = 'Больтраффио, Джованни';
+          artistDate.textContent = '2 июня 1448 — 11 января 1486.';
+          artistDescription.textContent = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa quos deserunt totam deleniti vero, autem voluptatibus dolorum delectus eveniet. Labore, ex voluptates.'
+        }
+        else if (ev.target.textContent == 'Бонсиньори, Франческо') {
+          artistImg.src = 'img/gallery_img_6.jpg';
+          artistName.textContent = 'Бонсиньори, Франческо';
+          artistDate.textContent = '2 июня 1448 — 11 января 1466.';
+          artistDescription.textContent = 'Lorem ipsum dolor sit amet. Culpa molestiae reprehenderit sint aperiam in rem suscipit, nulla quos deserunt totam deleniti vero, autem voluptatibus dolorum delectus eveniet. Labore, ex voluptates.'
+        }
+        else if (ev.target.textContent == 'Боттичини, Рафаэлло') {
+          artistImg.src = 'img/gallery_img_7.jpg';
+          artistName.textContent = 'Боттичини, Рафаэлло';
+          artistDate.textContent = '2 июня 1448 — 11 января 1456.';
+          artistDescription.textContent = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa molestiae reprehenderit dolorum delectus eveniet. Labore, ex voluptates.'
+        }
+        else if (ev.target.textContent == 'Брамантино') {
+          artistImg.src = 'img/gallery_img_6.jpg';
+          artistName.textContent = 'Брамантино';
+          artistDate.textContent = '2 июня 1448 — 11 января 1467.';
+          artistDescription.textContent = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa consectetur adipisicing elit molestiae reprehenderit dolorum delectus eveniet. Labore, ex voluptates.'
+        }
+        else if (ev.target.textContent == 'Бреа, Людовико') {
+          artistImg.src = 'img/gallery_img_5.jpg';
+          artistName.textContent = 'Бреа, Людовико';
+          artistDate.textContent = '2 июня 1448 — 11 января 1456.';
+          artistDescription.textContent = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa molestiae reprehenderit dolorum delectus eveniet. Labore, ex voluptates.'
+        }
+        else if (ev.target.textContent == 'Бьяджо д’Антонио Туччи') {
+          artistImg.src = 'img/gallery_img_4.jpg';
+          artistName.textContent = 'Бьяджо д’Антонио Туччи';
+          artistDate.textContent = '2 июня 1448 — 11 января 1487.';
+          artistDescription.textContent = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore, ex voluptates. Culpa molestiae reprehenderit dolorum delectus sit amet, consectetur adipisicing sit amet, consectetur adipisicing eveniet. Labore, ex voluptates.'
         }
     };
 
@@ -574,21 +793,21 @@ function searchToggle320(ev) {
 //Burger
 
 const burger = document.querySelector('.burger');
-const burgerMenu = document.querySelector('.burger-menu');
+const burgerMenu = document.querySelector('.nav-menu');
 const burgerTabs = document.querySelectorAll('.tab');
 
 function burgerToggle() {
-  if (burger.classList.contains('burger__open')) {
-    burger.classList.remove('burger__open');
-    burger.classList.add('burger__close');
+  if (burger.classList.contains('burger_open')) {
+    burger.classList.remove('burger_open');
+    burger.classList.add('burger_close');
     burgerMenu.classList.remove('burger-menu_open');
     for (const tab of burgerTabs) {
       tab.setAttribute('tabindex', '-1');
     }
   }
   else {
-    burger.classList.remove('burger__close');
-    burger.classList.add('burger__open');
+    burger.classList.remove('burger_close');
+    burger.classList.add('burger_open');
     burgerMenu.classList.add('burger-menu_open');
     for (const tab of burgerTabs) {
       tab.setAttribute('tabindex', '0');
