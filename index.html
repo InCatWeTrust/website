@@ -589,72 +589,11 @@
 					<div class="public">
             <h2 id="public" class="public__head">Издания</h2>
 
-            <!--320-->
-
-            <div class="spoiler-container mobile">
-              <div class="spoiler">
-                <h4 tabindex="0" class="check-head">Категории</h4>
-                <div class="spoiler__choices">
-                  <ul class="spoiler__choices-list"></ul>
-                </div>
-                <ul class="checkbox-list">
-                  <li tabindex="-1" class="checkbox">
-                    <div class="checkbox__box"></div>
-                    <p class="checkbox__category">Бестселлеры</p>
-                  </li>
-                  <li tabindex="-1" class="checkbox">
-                    <div class="checkbox__box"></div>
-                    <p class="checkbox__category">Искусство</p>
-                  </li>
-                  <li tabindex="-1" class="checkbox">
-                    <div class="checkbox__box"></div>
-                    <p class="checkbox__category">Архитектура</p>
-                  </li>
-                  <li tabindex="-1" class="checkbox">
-                    <div class="checkbox__box"></div>
-                    <p class="checkbox__category">Дизайн</p>
-                  </li>
-                  <li tabindex="-1" class="checkbox">
-                    <div class="checkbox__box"></div>
-                    <p class="checkbox__category">Мода</p>
-                  </li>
-                  <li tabindex="-1" class="checkbox">
-                    <div class="checkbox__box"></div>
-                    <p class="checkbox__category">Детям</p>
-                  </li>
-                  <li tabindex="-1" class="checkbox">
-                    <div class="checkbox__box"></div>
-                    <p class="checkbox__category">Художественная литература</p>
-                  </li>
-                  <li tabindex="-1" class="checkbox">
-                    <div class="checkbox__box"></div>
-                    <p class="checkbox__category">Публицистика</p>
-                  </li>
-                  <li tabindex="-1" class="checkbox">
-                    <div class="checkbox__box"></div>
-                    <p class="checkbox__category">Путеводители</p>
-                  </li>
-                  <li tabindex="-1" class="checkbox">
-                    <div class="checkbox__box"></div>
-                    <p class="checkbox__category">Философия</p>
-                  </li>
-                  <li tabindex="-1" class="checkbox">
-                    <div class="checkbox__box"></div>
-                    <p class="checkbox__category">Учебная литература</p>
-                  </li>
-                  <li tabindex="-1" class="checkbox">
-                    <div class="checkbox__box"></div>
-                    <p class="checkbox__category">Журналы и газеты</p>
-                  </li>
-                </ul>
-              </div>
+            <h4 class="check-head" data-mobile="false">Категории</h4>
+            <div class="choices mobile">
+              <ul class="choices-list"></ul>
             </div>
-
-            <!---->
-
-            <h4 class="check-head landscape mobile_hide">Категории</h4>
-						<div class="checkbox-container mobile_hide">
-							<h4 class="check-head landscape_hide">Категории</h4>
+						<div class="checkbox-container" data-mobile="false">
 							<label class="label" for="check">
 								 <input type="checkbox" name="check" id="check">
 								 <span class="label__span"></span>
@@ -674,7 +613,7 @@
 							</label>
 
 							<label class="label" for="check4">
-								<input type="checkbox" name="check" id="check4">
+								<input type="checkbox" name="check" id="check4" checked="true">
 								<span class="label__span"></span>
 								<span class="label__text">Дизайн</span>
 							</label>
@@ -730,33 +669,20 @@
 
           </div>
 
-          <!--Desktop-->
-
-					<div class="public-price desktop">
+					<div class="public-price">
 						<h4 class="public-price__text">Цена</h4>
 						<div class="price">
-							<div class="price__from">От</div>
-							<input class="price__from-input" placeholder="50">
-							<div class="price__to">до</div>
-							<input class="price__to-input" placeholder="25 000">
-							<div class="price__rub">рублей</div>
+							<label for="from" class="price__from">
+                <span>От</span>
+                <input id="from" class="price__from-input" placeholder="50">
+              </label>
+							<label for="to" class="price__to">
+                <span>до</span>
+                <input id="to" class="price__to-input" placeholder="25 000">
+              </label>
+							<div class="price__rub">руб.</div>
 						</div>
           </div>
-
-          <!--768-->
-
-          <div class="public-price landscape">
-						<h4 class="public-price__text">Цена</h4>
-						<div class="price">
-							<div class="price__from">От</div>
-							<input class="price__from-input" placeholder="50">
-							<div class="price__to">до</div>
-							<input class="price__to-input" placeholder="25 000">
-							<div class="price__rub">рублей</div>
-						</div>
-          </div>
-
-          <!---->
 
 				</div>
 				<div class="public-box2">
@@ -766,109 +692,11 @@
 							<div class="public-pagination"></div>
 							<button class="swipe-button public-button-next"></button>
             </div>
-
-            <!--1024-->
-
-            <div class="public-price tablet landscape_hide">
-              <h4 class="public-price__text">Цена</h4>
-              <div class="price">
-                <div class="price__from">От</div>
-                <input class="price__from-input" placeholder="50">
-                <div class="price__to">до</div>
-                <input class="price__to-input" placeholder="25 000">
-                <div class="price__rub">рублей</div>
-              </div>
-            </div>
-
-            <!---->
-
           </div>
 
-          <!--320-->
+          <!-- Public Swiper -->
 
-          <div class="public-book-list mobile_flex">
-            <div class="book">
-              <img src="img/book_1.jpg" alt="">
-              <div class="book__description">
-                <div class="book__group">
-                  <p class="book__name">Искусство цвета</p>
-                  <p class="book__author">Иттен, Иоханнес</p>
-                </div>
-                <p class="book__price">620 руб</p>
-              </div>
-              <button class="book__button"><span>Заказать</span></button>
-            </div>
-            <div class="book">
-              <img src="img/book_2.jpg" alt="">
-              <div class="book__description">
-                <div class="book__group">
-                  <p class="book__name">Типографика</p>
-                  <p class="book__author">Рудер, Эмиль</p>
-                </div>
-                <p class="book__price">2 450 руб</p>
-              </div>
-              <button class="book__button"><span>Заказать</span></button>
-            </div>
-            <div class="book">
-              <img src="img/book_3.jpg" alt="">
-              <div class="book__description">
-                <div class="book__group">
-                  <p class="book__name">Книга про буквы</p>
-                  <p class="book__author">Гордон, Юрий</p>
-                </div>
-                <p class="book__price">2 200 руб</p>
-              </div>
-              <button class="book__button"><span>Заказать</span></button>
-            </div>
-            <div class="book">
-              <img src="img/book_4.jpg" alt="">
-              <div class="book__description">
-                <div class="book__group">
-                  <p class="book__name">Николай Ильин</p>
-                  <p class="book__author">Кричевский, Влади...</p>
-                </div>
-                <p class="book__price">1 100 руб</p>
-              </div>
-              <button class="book__button"><span>Заказать</span></button>
-            </div>
-            <div class="book">
-              <img src="img/book_5.jpg" alt="">
-              <div class="book__description">
-                <div class="book__group">
-                  <p class="book__name">Модульные сетки...</p>
-                  <p class="book__author">Мюллер-Брокманн...</p>
-                </div>
-                <p class="book__price">1 450 руб</p>
-              </div>
-              <button class="book__button"><span>Заказать</span></button>
-            </div>
-            <div class="book">
-              <img src="img/book_6.jpg" alt="">
-              <div class="book__description">
-                <div class="book__group">
-                  <p class="book__name">Эволюция графич...</p>
-                  <p class="book__author">Хеллер, Чваст</p>
-                </div>
-                <p class="book__price">3 200 руб</p>
-              </div>
-              <button class="book__button"><span>Заказать</span></button>
-            </div>
-            <div class="book">
-              <img src="img/book_7.jpg" alt="">
-              <div class="book__description">
-                <div class="book__group">
-                  <p class="book__name">Искусство и визуа...</p>
-                  <p class="book__author">Арнхейм, Рудольф</p>
-                </div>
-                <p class="book__price">2 200 руб</p>
-              </div>
-              <button class="book__button"><span>Заказать</span></button>
-            </div>
-          </div>
-
-          <!---->
-
-					<div class="public-swiper-container mobile_hide">
+					<div class="public-swiper-container" data-mobile="true">
 						<div class="swiper-wrapper">
 							<div class="swiper-slide book">
 								<img src="img/book_1.jpg" alt="">
@@ -908,8 +736,7 @@
 								<div class="book__description">
 									<div class="book__group">
 										<p class="book__name">Николай Ильин</p>
-                    <p class="book__author desktop">Кричевский, Владимир</p>
-                    <p class="book__author tablet">Кричевский, Вла...</p>
+                    <p class="book__author">Кричевский, Влади...</p>
 									</div>
 									<p class="book__price">1 100 руб</p>
 								</div>
@@ -919,10 +746,8 @@
 								<img src="img/book_5.jpg" alt="">
 								<div class="book__description">
 									<div class="book__group">
-                    <p class="book__name desktop">Модульные сетки в граф...</p>
-                    <p class="book__name tablet">Модульные сет...</p>
-                    <p class="book__author desktop">Мюллер-Брокманн, Йозеф</p>
-                    <p class="book__author tablet">Мюллер-Брокма...</p>
+                    <p class="book__name">Модульные сетки...</p>
+                    <p class="book__author">Мюллер-Брокманн...</p>
 									</div>
 									<p class="book__price">1 450 руб</p>
 								</div>
@@ -932,8 +757,7 @@
 								<img src="img/book_6.jpg" alt="">
 								<div class="book__description">
 									<div class="book__group">
-                    <p class="book__name desktop">Эволюция графических ст...</p>
-                    <p class="book__name tablet">Эволюция граф...</p>
+                    <p class="book__name">Эволюция графич...</p>
 										<p class="book__author">Хеллер, Чваст</p>
 									</div>
 									<p class="book__price">3 200 руб</p>
@@ -944,8 +768,7 @@
 								<img src="img/book_7.jpg" alt="">
 								<div class="book__description">
 									<div class="book__group">
-                    <p class="book__name desktop">Искусство и визуальное в...</p>
-                    <p class="book__name tablet">Искусство и ви...</p>
+                    <p class="book__name">Искусство и визуа...</p>
 										<p class="book__author">Арнхейм, Рудольф</p>
 									</div>
 									<p class="book__price">2 200 руб</p>
@@ -1007,10 +830,8 @@
 		  	<div class="contacts-block-container">
 		  		<div class="contacts-block">
 		  			<div class="contacts-adress mobile_hide">
-              <h3 class="contacts-adress__room tablet">Шоурум №2</h3>
-              <h3 class="contacts-adress__room desktop">Шоурум №4</h3>
-              <p class="contacts-adress__street tablet">Покровский бульвар, дом 24, строение 3</p>
-		  				<p class="contacts-adress__street desktop">Леонтьевский переулок, дом 5, строение 1</p>
+              <h3 class="contacts-adress__room">Шоурум №2</h3>
+              <p class="contacts-adress__street">Покровский бульвар, дом 24, строение 3</p>
             </div>
 		  			<div class="contacts-form-container">
 		  				<h3 class="contacts-form-head">Заказать обратный звонок</h3>
@@ -1043,8 +864,7 @@
 
 	<footer class="footer">
 		<div class="container footer-container">
-      <a class="footer-logo-link mobile" href=""><img src="img/logo_320.svg" alt="Logo"></a>
-			<a class="footer-logo-link mobile_hide" href=""><img src="img/logo_header.svg" alt="Logo"></a>
+			<a class="footer-logo-link" href=""><img src="img/logo_header.svg" alt="Logo"></a>
 			<div class="footer-social">
 				<a class="footer-social__link footer-social__icon1" href="https://vk.com/" aria-label="Vkontakte" target="blank"></a>
 				<a class="footer-social__link footer-social__icon2" href="https://www.instagram.com/" aria-label="Instagram" target="blank"></a>
