@@ -1,26 +1,3 @@
-// Checkbox
-
-const checkbox = document.querySelectorAll('.label input');
-
-document.querySelector('.checkbox-container').addEventListener('mousedown', (ev) => {
-    for (let check of checkbox) {
-        if (ev.target == check || ev.target.firstElementChild == check || ev.target.parentElement.firstElementChild == check && check.checked == false) {
-            check.parentElement.style.color = '#7943A4';
-        };
-    };
-});
-
-document.querySelector('.checkbox-container').addEventListener('click', () => {
-    for (let check of checkbox) {
-        if (check.checked == true) {
-            check.parentElement.style.color = '#C283F3';
-        }
-        else if (check.checked == false) {
-            check.parentElement.style.color = 'var(--white)';
-        };
-    };
-});
-
 // Events Swow All Button
 
 const btn = document.querySelector('.button-container__all-events');
@@ -290,68 +267,85 @@ function mobileSwiper() {
 
 mobileSwiper();
 
-window.addEventListener('resize', () => {
-  mobileSwiper();
-});
-
 // Accordion
 
 $( function() {
     $( "#accordion" ).accordion({
       heighStyle: "content",
     });
-    $( "#accordion").accordion("refresh");
 });
 
 // Public Swiper
 
-var publicSwiper = new Swiper('.public-swiper-container', {
+const publicSlider = document.querySelector('.public-swiper-container');
 
-    observer: true,
-    observeSlideChildren: true,
-    observeParents: true,
-    slidesPerView: 3,
-    slidesPerGroup: 3,
-    spaceBetween: 53,
-    loop: true,
-    loopFillGroupWithBlank: true,
-    pagination: {
-      el: '.public-pagination',
-      type: 'fraction',
-    },
-    navigation: {
-        nextEl: '.public-button-next',
-        prevEl: '.public-button-prev',
-    },
-    breakpoints: {
-      600: {
-        slidesPerView: 2,
-        slidesPerGroup: 2,
-        spaceBetween: 34,
+let publicSwiper;
+
+function publicSwiperInit() {
+
+  if (window.innerWidth >= 760 && publicSlider.dataset.mobile == 'true') {
+    publicSwiper = new Swiper('.public-swiper-container', {
+
+      observer: true,
+      observeSlideChildren: true,
+      observeParents: true,
+      slidesPerView: 3,
+      slidesPerGroup: 3,
+      spaceBetween: 53,
+      loop: true,
+      loopFillGroupWithBlank: true,
+      slideClass: 'book',
+      pagination: {
+        el: '.public-pagination',
+        type: 'fraction',
       },
-      900: {
-        slidesPerView: 2,
-        slidesPerGroup: 2,
-        spaceBetween: 53,
+      navigation: {
+          nextEl: '.public-button-next',
+          prevEl: '.public-button-prev',
       },
-      1250: {
-        slidesPerView: 2,
-        slidesPerGroup: 2,
-        spaceBetween: 70,
-      },
-      1400: {
-        slidesPerView: 2,
-        slidesPerGroup: 2,
-        spaceBetween: 30,
-      },
-      1600: {
-        slidesPerView: 3,
-        slidesPerGroup: 3,
-        spaceBetween: 53,
+      breakpoints: {
+        600: {
+          slidesPerView: 2,
+          slidesPerGroup: 2,
+          spaceBetween: 34,
+        },
+        900: {
+          slidesPerView: 2,
+          slidesPerGroup: 2,
+          spaceBetween: 53,
+        },
+        1250: {
+          slidesPerView: 2,
+          slidesPerGroup: 2,
+          spaceBetween: 70,
+        },
+        1400: {
+          slidesPerView: 2,
+          slidesPerGroup: 2,
+          spaceBetween: 30,
+        },
+        1600: {
+          slidesPerView: 3,
+          slidesPerGroup: 3,
+          spaceBetween: 53,
+        }
       }
-    }
 
-});
+    });
+
+    publicSlider.dataset.mobile = 'false';
+  };
+  if (window.innerWidth < 760) {
+    publicSlider.dataset.mobile = 'true'
+
+    if (publicSlider.classList.contains('swiper-container-initialized')) {
+      publicSwiper.destroy();
+    };
+  };
+
+};
+
+publicSwiperInit();
 
 // Language tabs
 
@@ -906,106 +900,97 @@ gallerySelector.addEventListener('focusout', (event) => {
   }
 });
 
-// Outside The Selectors
+// Public Spoiler
 
-window.addEventListener('pointerup', (event) => {
-  if (!burgerMenu.contains(event.target) && event.target != burger && burgerMenu.classList.contains('burger-menu_open')) {
-    if (burgerMenu.contains(document.activeElement)) {return}
-    burgerToggle()
-  };
-});
+const checkboxHead = document.querySelector('.check-head');
+const spoiler = document.querySelector('.checkbox-container');
+const spoilerItems = document.querySelectorAll('.label');
+const spoilerFilter = document.querySelector('.choices-list')
 
-// Mobile Checkbox Spoiler
+function toggleSpoiler() {
+  spoiler.classList.toggle('checkbox-container_opened');
+  checkboxHead.classList.toggle('check-head_active');
+}
 
-const checkContainer = document.querySelector('.spoiler');
-const checkHead = document.querySelector('.check-head');
-const checkList = document.querySelector('.checkbox-list');
-const checkItems = document.querySelectorAll('.checkbox');
-const checkChoices = document.querySelector('.spoiler__choices-list');
+function filterChoices(ev) {
+  if (spoilerFilter.children.length == 0) return;
 
-checkContainer.addEventListener('click', (event) => {
-  filterChoice(event);
-  if (event.target == checkHead) {
-    openSpoiler();
-  };
-});
-checkContainer.addEventListener('keyup', (event) => {
-  if (event.code == 'Enter' || event.code == 'Space') {
-    event.preventDefault();
-    filterChoice(event);
-    if (event.target == checkHead) {
-      openSpoiler();
-    };
-  };
-});
-
-function openSpoiler() {
-  if (!checkList.classList.contains('checkbox-list_open')) {
-    checkList.classList.add('checkbox-list_open');
-    checkHead.classList.add('check-head_active');
-    for (const item of checkItems) {
-      item.setAttribute('tabindex', '0');
-    };
-    const filters = document.querySelectorAll('.choices__list__item');
-    const filtersList = document.querySelector('.spoiler__choices-list');
-    if (filtersList.children[0]) {
-      for (const filter of filters) {
-        filter.setAttribute('tabindex', '-1');
-      };
-    };
-  }
-  else if (checkList.classList.contains('checkbox-list_open')) {
-    checkList.classList.remove('checkbox-list_open');
-    checkHead.classList.remove('check-head_active');
-    for (const item of checkItems) {
-      item.setAttribute('tabindex', '-1');
-    };
-    const filters = document.querySelectorAll('.choices__list__item');
-    const filtersList = document.querySelector('.spoiler__choices-list');
-    if (filtersList.children[0]) {
-      for (const filter of filters) {
-        filter.setAttribute('tabindex', '0');
-      };
-    };
-  };
-};
-
-function filterChoice(event) {
-  for (const item of checkItems) {
-    if (event.target == item) {
-      const inner = item.innerHTML;
-      const newFilter = document.createElement('li');
-      newFilter.innerHTML = inner;
-      newFilter.classList.add('choices__list__item');
-      newFilter.firstElementChild.classList.add('checkbox__box__checked');
-      checkChoices.append(newFilter);
-      item.classList.add('checkbox__hide');
-    };
-  };
-  const choiceItems = document.querySelectorAll('.choices__list__item');
-  for (const item of choiceItems) {
-    if (event.target == item) {
-      for (const checkItem of checkItems) {
-        if (item.children[1].textContent == checkItem.children[1].textContent) {
+  const filterItems = document.querySelectorAll('.choices__item');
+  for (const item of filterItems) {
+    if (ev.target == item) {
+      for (const spoilerItem of spoilerItems) {
+        if (spoilerItem.innerText.trim() == item.textContent) {
+          spoilerItem.classList.remove('checkbox_hide');
+          spoilerItem.firstElementChild.checked = false;
           item.remove();
-          checkItem.classList.remove('checkbox__hide');
         };
       };
     };
   };
 };
 
-checkContainer.addEventListener('focusout', (event) => {
-  if (checkContainer.contains(event.relatedTarget)) {
-    return;
+spoilerFilter.addEventListener('click', filterChoices);
+
+function checkState() {
+
+  for (const item of spoilerItems) {
+
+    if (item.firstElementChild.checked == true && !item.classList.contains('checkbox_hide')) {
+      const itemText = item.innerText.trim();
+      const newFilter = document.createElement('li');
+      const newCheckbox = document.createElement('div');
+      const newText = document.createElement('span');
+      const newClose = document.createElement('div');
+      newFilter.classList.add('choices__item');
+      newCheckbox.classList.add('choices__checkbox');
+      newText.textContent = itemText;
+      newClose.classList.add('choices__close');
+      newFilter.append(newCheckbox);
+      newFilter.append(newText);
+      newFilter.append(newClose);
+      spoilerFilter.append(newFilter);
+      item.classList.add('checkbox_hide');
+    };
+
+    if (spoilerFilter.children.length == 0) continue;
+
+    const filterItems = document.querySelectorAll('.choices__item');
+    for (const filterItem of filterItems) {
+      if (item.firstElementChild.checked == false && item.classList.contains('checkbox_hide') && filterItem.textContent == item.innerText.trim()) {
+        item.classList.remove('checkbox_hide');
+        filterItem.remove();
+      };
+    };
   };
-  if (!checkList.classList.contains('checkbox-list_open')) {
-    return;
+};
+
+function checkboxSpoiler() {
+
+  if (window.innerWidth <= 760 && checkboxHead.dataset.mobile == 'false') {
+    spoiler.dataset.mobile = 'true';
+    checkboxHead.addEventListener('click', toggleSpoiler);
+    spoiler.addEventListener('click', checkState);
+    checkState();
+
+    checkboxHead.dataset.mobile = 'true';
   };
-  if (!event.relatedTarget) {
-    return;
+  if (window.innerWidth > 760) {
+    checkboxHead.dataset.mobile = 'false';
+    if (spoiler.dataset.mobile == 'true') {
+      checkboxHead.removeEventListener('click', toggleSpoiler);
+      spoiler.removeEventListener('click', checkState);
+    };
   };
-  openSpoiler();
+
+};
+
+checkboxSpoiler();
+
+window.addEventListener('resize', () => {
+  $( "#accordion").accordion("refresh");
+  mobileSwiper();
+  publicSwiperInit();
+  checkboxSpoiler();
 });
 
 // Tooltips
@@ -1036,4 +1021,13 @@ tippy('#fourthTooltip', {
   maxWidth: 264,
   offset: [0, 12],
   theme: 'light',
+});
+
+// Outside The Selectors
+
+window.addEventListener('pointerup', (event) => {
+  if (!burgerMenu.contains(event.target) && event.target != burger && burgerMenu.classList.contains('burger-menu_open')) {
+    if (burgerMenu.contains(document.activeElement)) {return}
+    burgerToggle()
+  };
 });
