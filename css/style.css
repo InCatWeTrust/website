@@ -1247,7 +1247,6 @@ background-image: url('../img/white_arrow_up.svg');
     flex-direction: column;
     align-self: flex-end;
     margin-bottom: 4px;
-    padding-right: 18px;
     font-weight: 600;
     font-size: 12px;
     line-height: 16px;
@@ -1618,20 +1617,12 @@ input:focus ~ .label__text {
     line-height: 32px;
 }
 
-.price input{
-    color: var(--white);
-}
-
-.price input::placeholder{
-    color: var(--white);
-}
-
 .price__from {
     width: 41.5%;
     padding-left: 3%;
 }
 
-.price__from span {
+.price__span {
   margin-right: 5px;
 }
 
@@ -1639,7 +1630,12 @@ input:focus ~ .label__text {
     width: 70%;
     height: 100%;
     padding-left: 9%;
+    color: var(--white);
     background-color: rgba(157, 92, 208, 0.5);
+}
+
+.price__from-input::placeholder {
+  color: var(--white);
 }
 
 .price__to {
@@ -1647,15 +1643,16 @@ input:focus ~ .label__text {
     padding-left: 3%;
 }
 
-.price__to span {
-  margin-right: 5px;
-}
-
 .price__to-input {
     width: 70%;
     height: 100%;
     padding-left: 9%;
+    color: var(--white);
     background-color: rgba(157, 92, 208, 0.5);
+}
+
+.price__to-input::placeholder {
+  color: var(--white);
 }
 
 .price__rub {
@@ -1696,6 +1693,7 @@ input:focus ~ .label__text {
 }
 
 .public-swiper-container {
+    padding-left: 1px;
     overflow: hidden;
 }
 
@@ -1772,31 +1770,27 @@ input:focus ~ .label__text {
 
 /*Projects*/
 
-.projects-container {
+.projects {
     min-height: 638px;
     padding-top: 80px;
     padding-bottom: 78px;
     color: #333;
 }
 
-.projects-head {
+.projects__head {
     margin-bottom: 16px;
     font-weight: 400;
     font-size: 48px;
     line-height: 65px;
 }
 
-.projects-description {
+.projects__description {
     width: 67%;
     margin-bottom: 21px;
     line-height: 32px;
 }
 
-.projects-description p {
-    display: inline;
-}
-
-.tooltip {
+.projects__tooltip {
     position: relative;
     display: inline-block;
     width: 16px;
@@ -1835,13 +1829,13 @@ input:focus ~ .label__text {
   text-align: center;
 }
 
-.projects-description__link {
+.projects__link {
     position: relative;
     font-weight: 600;
     color: var(--purple);
 }
 
-.projects-description__link::before {
+.projects__link::before {
   content: '';
   position: absolute;
   bottom: 1px;
@@ -1854,25 +1848,25 @@ input:focus ~ .label__text {
   transition-timing-function: ease;
 }
 
-.projects-description__link:focus {
+.projects__link:focus {
   outline: 2px solid var(--darkPurple);
   outline-offset: 3px;
 }
 
-.projects-description__link:not(:active):not(:focus):hover::before {
+.projects__link:not(:active):not(:focus):hover::before {
   opacity: 1;
 }
 
-.projects-description__link:active {
+.projects__link:active {
   outline: none;
 }
 
-.projects-description__link:active::before {
+.projects__link:active::before {
     background-color: var(--darkPurple);
     opacity: 1;
 }
 
-.projects-description span {
+.projects__description-span {
     display: inline-block;
 }
 
@@ -2043,6 +2037,7 @@ input:focus ~ .label__text {
 /*Contacts*/
 
 .contacts-container {
+    position: relative;
     max-width: 1920px;
     padding-left: 0;
     padding-right: 0;
@@ -2067,12 +2062,13 @@ input:focus ~ .label__text {
     width: 682px;
     min-height: 700px;
     padding-top: 124px;
-    padding-left: 159px;
+    padding-left: calc((100% - 1630px) / 2);
     border: 1px solid var(--lightGrey);
 }
 
 .contacts-adress {
     margin-bottom: 29px;
+    padding-left: 15px;
     font-style: normal;
 }
 
@@ -2085,6 +2081,10 @@ input:focus ~ .label__text {
 
 .contacts-adress__street {
     line-height: 32px;
+}
+
+.contacts-form-container {
+  padding-left: 15px;
 }
 
 .contacts-form-head {
@@ -2780,15 +2780,15 @@ input:focus ~ .label__text {
 
 /*Projects 1024*/
 
-.projects-container {
+.projects {
   min-height: 638px;
 }
 
-.projects-description {
+.projects__description {
   width: 100%;
 }
 
-.tooltip {
+.projects__tooltip {
   background-image: url('../img/i__tooltip_white.svg');
 }
 
@@ -2817,6 +2817,14 @@ input:focus ~ .label__text {
   padding-top: 122px;
   padding-right: 100px;
   padding-left: 49px;
+}
+
+.contacts-adress {
+  padding-left: 0;
+}
+
+.contacts-form-container {
+  padding-left: 0;
 }
 
 .contacts-adress__room {
@@ -3116,16 +3124,16 @@ input:focus ~ .label__text {
 
 /*Projects 768*/
 
-.projects-container {
+.projects {
   min-height: 638px;
 }
 
-.projects-description {
+.projects__description {
   width: 99%;
   margin-bottom: 27px;
 }
 
-.projects-description__link {
+.projects__link {
   display: block;
 }
 
@@ -3613,7 +3621,6 @@ input:focus ~ .label__text {
 
 .event__museum {
   margin-bottom: 5px;
-  padding-right: 10px;
 }
 
 .event__head {
@@ -3838,22 +3845,22 @@ input:focus ~ .label__text {
 
 /*Projects 320*/
 
-.projects-container {
+.projects {
   padding-top: 50px;
 }
 
-.projects-head {
+.projects__head {
   margin-bottom: 13px;
   font-size: 28px;
   line-height: 38px;
 }
 
-.projects-description {
+.projects__description {
   width: 100%;
   margin-bottom: 10px;
 }
 
-.projects-description span {
+.projects__description-span {
   display: inline;
 }
 
@@ -3889,15 +3896,17 @@ input:focus ~ .label__text {
 }
 
 .contacts-head {
-  margin-bottom: 15px;
+  margin-bottom: 70px;
   padding-left: 13px;
   font-size: 28px;
   line-height: 38px;
 }
 
 .contacts-adress {
-  margin-bottom: 13px;
-  padding-left: 13px;
+  position: absolute;
+  top: 100px;
+  left: 13px;
+  margin-bottom: 0;
 }
 
 .contacts-adress__room {
