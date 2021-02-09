@@ -1,3 +1,5 @@
+import {artistsBio} from './artists.js';
+
 // Events Swow All Button
 
 const btn = document.querySelector('.button-container__all-events');
@@ -94,60 +96,37 @@ $('.hero-text__button').on('click', function(ev) {
     }, 1000);
 });
 
-$('.nav-about').on('click', function(ev) {
-  ev.preventDefault();
-  var top = $('#about').offset().top;
-  $('html, body').animate({
-      scrollTop: top,
-  }, 1000);
-});
+const navList = document.querySelector('.nav-list');
 
-$('.nav-gallery').on('click', function(ev) {
-  ev.preventDefault();
-  var top = $('#gallery').offset().top;
-  $('html, body').animate({
-      scrollTop: top,
-  }, 1000);
-});
+navList.addEventListener('click', (ev) => {
 
-$('.nav-catalog').on('click', function(ev) {
   ev.preventDefault();
-  var top = $('#catalog').offset().top;
-  $('html, body').animate({
-      scrollTop: top,
-  }, 1000);
-});
+  if (ev.target.classList.contains('nav-about')) {
+    var top = $('#about').offset().top;
+  }
+  else if (ev.target.classList.contains('nav-gallery')) {
+    var top = $('#gallery').offset().top;
+  }
+  else if (ev.target.classList.contains('nav-catalog')) {
+    var top = $('#catalog').offset().top;
+  }
+  else if (ev.target.classList.contains('nav-events')) {
+    var top = $('#events').offset().top;
+  }
+  else if (ev.target.classList.contains('nav-public')) {
+    var top = $('#public').offset().top;
+  }
+  else if (ev.target.classList.contains('nav-projects')) {
+    var top = $('#projects').offset().top;
+  }
+  else if (ev.target.classList.contains('nav-contacts')) {
+    var top = $('#contacts').offset().top;
+  }
 
-$('.nav-events').on('click', function(ev) {
-  ev.preventDefault();
-  var top = $('#events').offset().top;
   $('html, body').animate({
-      scrollTop: top,
-  }, 1000);
-});
+    scrollTop: top,
+}, 1000);
 
-$('.nav-public').on('click', function(ev) {
-  ev.preventDefault();
-  var top = $('#public').offset().top;
-  $('html, body').animate({
-      scrollTop: top,
-  }, 1000);
-});
-
-$('.nav-projects').on('click', function(ev) {
-  ev.preventDefault();
-  var top = $('#projects').offset().top;
-  $('html, body').animate({
-      scrollTop: top,
-  }, 1000);
-});
-
-$('.nav-contacts').on('click', function(ev) {
-  ev.preventDefault();
-  var top = $('#contacts').offset().top;
-  $('html, body').animate({
-      scrollTop: top,
-  }, 1000);
 });
 
 // Projects Swiper
@@ -349,72 +328,105 @@ publicSwiperInit();
 
 // Language tabs
 
-const languages = document.querySelectorAll('.language-container__language');
+const languages = document.querySelector('.language-container');
+const langTabs = document.querySelectorAll('.language-container__language');
+const artistList = document.querySelectorAll('.period-people');
+const artists = document.querySelectorAll('.period-people__artist-span');
+const artistImg = document.querySelector('.artist__img');
+const artistName = document.querySelector('.artist__head');
+const artistDate = document.querySelector('.artist__date');
+const artistDescription = document.querySelector('.artist__description');
 
-for (let language of languages) {
-    const border = function(event) {
-        if (event.target.classList.contains('language_border')) {return};
-        for (let lang of languages) {
-            if (lang.classList.contains('language_border')) {
-                lang.classList.remove('language_border');
-            };
-        };
-        language.classList.add('language_border');
+function addBorder(event) {
+  if (event.target.classList.contains('language_border') || !event.target.classList.contains('language-container__language')) {return};
+  for (const lang of langTabs) {
+    if (lang.classList.contains('language_border')) {
+      lang.classList.remove('language_border');
     };
-    language.addEventListener('click', (ev) => {
-      border(ev);
-      if (ev.target.classList.contains('russia')) {
-        for (const list of artistList) {
-          if (!list.classList.contains('period-people-russia')) {
-            list.classList.add('period-people_hidden');
-          };
-          if (list.classList.contains('period-people-russia')) {
-            list.classList.remove('period-people_hidden');
-          };
-        };
-      }
-      else if (ev.target.classList.contains('italy')) {
-        for (const list of artistList) {
-          if (!list.classList.contains('period-people-italy')) {
-            list.classList.add('period-people_hidden');
-          };
-          if (list.classList.contains('period-people-italy')) {
-            list.classList.remove('period-people_hidden');
-          };
-        };
-      }
-      else if (ev.target.classList.contains('france')) {
-        for (const list of artistList) {
-          if (!list.classList.contains('period-people-france')) {
-            list.classList.add('period-people_hidden');
-          };
-          if (list.classList.contains('period-people-france')) {
-            list.classList.remove('period-people_hidden');
-          };
-        };
-      }
-      else if (ev.target.classList.contains('germany')) {
-        for (const list of artistList) {
-          if (!list.classList.contains('period-people-germany')) {
-            list.classList.add('period-people_hidden');
-          };
-          if (list.classList.contains('period-people-germany')) {
-            list.classList.remove('period-people_hidden');
-          };
-        };
-      }
-      else if (ev.target.classList.contains('belgium')) {
-        for (const list of artistList) {
-          if (!list.classList.contains('period-people-belgium')) {
-            list.classList.add('period-people_hidden');
-          };
-          if (list.classList.contains('period-people-belgium')) {
-            list.classList.remove('period-people_hidden');
-          };
+  };
+  event.target.classList.add('language_border');
+};
+
+function removeActive() {
+  for (let artist of artists) {
+    if (artist.classList.contains('active-artist')) {
+        artist.classList.remove('active-artist');
+    };
+  };
+};
+
+function addActive() {
+  const activeHead = document.querySelector('.ui-accordion-content-active');
+  for (const child of activeHead.children) {
+    if (!child.classList.contains('period-people_hidden')) {
+      child.children[0].children[0].classList.add('active-artist');
+      for (const artistBio of artistsBio) {
+        if (artistBio.name == child.children[0].textContent) {
+          artistName.textContent = artistBio.name;
+          artistImg.src = artistBio.img;
+          artistDate.textContent = artistBio.date;
+          artistDescription.textContent = artistBio.bio;
         };
       };
-    });
+    };
+  };
 };
+
+languages.addEventListener('click', (ev) => {
+  addBorder(ev);
+  removeActive();
+  if (ev.target.classList.contains('france')) {
+    for (const list of artistList) {
+      if (!list.classList.contains('period-people-russia')) {
+        list.classList.add('period-people_hidden');
+      };
+      if (list.classList.contains('period-people-russia')) {
+        list.classList.remove('period-people_hidden');
+      };
+    };
+  }
+  else if (ev.target.classList.contains('italy')) {
+    for (const list of artistList) {
+      if (!list.classList.contains('period-people-italy')) {
+        list.classList.add('period-people_hidden');
+      };
+      if (list.classList.contains('period-people-italy')) {
+        list.classList.remove('period-people_hidden');
+      };
+    };
+  }
+  else if (ev.target.classList.contains('russia')) {
+    for (const list of artistList) {
+      if (!list.classList.contains('period-people-russia')) {
+        list.classList.add('period-people_hidden');
+      };
+      if (list.classList.contains('period-people-russia')) {
+        list.classList.remove('period-people_hidden');
+      };
+    };
+  }
+  else if (ev.target.classList.contains('germany')) {
+    for (const list of artistList) {
+      if (!list.classList.contains('period-people-germany')) {
+        list.classList.add('period-people_hidden');
+      };
+      if (list.classList.contains('period-people-germany')) {
+        list.classList.remove('period-people_hidden');
+      };
+    };
+  }
+  else if (ev.target.classList.contains('belgium')) {
+    for (const list of artistList) {
+      if (!list.classList.contains('period-people-belgium')) {
+        list.classList.add('period-people_hidden');
+      };
+      if (list.classList.contains('period-people-belgium')) {
+        list.classList.remove('period-people_hidden');
+      };
+    };
+  };
+  addActive();
+});
 
 // Search Field
 
@@ -503,173 +515,35 @@ function dropdown(ev) {
 
 // Catalog List
 
-const artistList = document.querySelectorAll('.period-people');
-const artists = document.querySelectorAll('.period-people__artist-span');
+const artistBox = document.querySelector('.accordion-box');
 
-for (const artist of artistList) {
-  artist.addEventListener('click', changeArtist);
-  artist.addEventListener('keydown', changeArtistKey);
-}
+artistBox.addEventListener('click', (ev) => {
+  if (ev.target.classList.contains('period-people__artist-span')) {
+    changeArtist(ev);
+  };
+});
+artistBox.addEventListener('keydown', (ev) => {
+  if (ev.target.classList.contains('period-people__artist-span')) {
+    changeArtistKey(ev);
+  };
+});
 
 function changeArtist(ev) {
 
-    if (ev.target.classList.contains('period-people__artist-span') && !ev.target.classList.contains('active-artist')) {
-        for (let artist of artists) {
-            if (artist.classList.contains('active-artist')) {
-                artist.classList.remove('active-artist');
-            };
-        };
+    if (!ev.target.classList.contains('active-artist')) {
+
+        removeActive();
         ev.target.classList.add('active-artist');
 
-        const artistImg = document.querySelector('.artist__img');
-        const artistName = document.querySelector('.artist__head');
-        const artistDate = document.querySelector('.artist__date');
-        const artistDescription = document.querySelector('.artist__description');
+        for (const artistBio of artistsBio) {
+          if (artistBio.name == ev.target.textContent) {
+            artistName.textContent = artistBio.name;
+            artistImg.src = artistBio.img;
+            artistDate.textContent = artistBio.date;
+            artistDescription.textContent = artistBio.bio;
+          };
+        };
 
-        if (ev.target.textContent == 'Андреа Верроккьо') {
-            artistImg.src = 'img/verrokkio.jpg';
-            artistName.textContent = 'Андреа Верроккьо';
-            artistDate.textContent = '1435 — 10 октября 1488.';
-            artistDescription.textContent = 'Выдающийся итальянский скульптор, живописец и ювелир эпохи Возрождения. Учитель Леонардо да Винчи, Сандро Боттичелли, Пьетро Перуджино.'
-        }
-        else if (ev.target.textContent == 'Доменико Гирландайо') {
-            artistImg.src = 'img/Domenico.jpg';
-            artistName.textContent = 'Доменико Гирландайо';
-            artistDate.textContent = '2 июня 1448 — 11 января 1494.';
-            artistDescription.textContent = 'Один из ведущих флорентийских художников Кватроченто, основатель художественной династии, которую продолжили его брат Давид и сын Ридольфо. Глава художественной мастерской, где юный Микеланджело в течение года овладевал профессиональными навыками. Автор фресковых циклов, в которых выпукло, со всевозможными подробностями показана домашняя жизнь библейских персонажей (в их роли выступают знатные граждане Флоренции в костюмах того времени).'
-        }
-        else if (ev.target.textContent == 'Веккьетта') {
-          artistImg.src = 'img/gallery_img_2.jpg';
-          artistName.textContent = 'Веккьетта';
-          artistDate.textContent = '2 июня 1448 — 11 января 1476.';
-          artistDescription.textContent = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa molestiae reprehenderit sint aperiam in rem suscipit, nulla quos deserunt totam deleniti vero, autem voluptatibus dolorum delectus eveniet. Labore, ex voluptates.'
-        }
-        else if (ev.target.textContent == 'Беноццо Гоццоли') {
-          artistImg.src = 'img/gallery_img_1.jpg';
-          artistName.textContent = 'Беноццо Гоццоли';
-          artistDate.textContent = '2 июня 1448 — 11 января 1486.';
-          artistDescription.textContent = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa molestiae reprehenderit sint aperiam in rem suscipit, nulla quos deserunt totam deleniti vero. Labore, ex voluptates.'
-        }
-        else if (ev.target.textContent == 'Граначчи, Франческо') {
-          artistImg.src = 'img/gallery_img_3.jpg';
-          artistName.textContent = 'Граначчи, Франческо';
-          artistDate.textContent = '2 июня 1448 — 11 января 1456.';
-          artistDescription.textContent = 'Lorem ipsum elit. Culpa molestiae reprehenderit sint aperiam in rem suscipit, nulla quos deserunt totam deleniti vero, autem voluptatibus dolorum delectus eveniet. Labore, ex voluptates.'
-        }
-        else if (ev.target.textContent == 'Грегорио ди Чекко') {
-          artistImg.src = 'img/gallery_img_4.jpg';
-          artistName.textContent = 'Грегорио ди Чекко';
-          artistDate.textContent = '2 июня 1448 — 11 января 1486.';
-          artistDescription.textContent = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa molestiae reprehenderit sint aperiam in rem suscipit, nulla quos deserunt totam deleniti vero. Labore, ex voluptates.'
-        }
-        else if (ev.target.textContent == 'Джованни да Удине') {
-          artistImg.src = 'img/gallery_img_5.jpg';
-          artistName.textContent = 'Джованни да Удине';
-          artistDate.textContent = '2 июня 1448 — 11 января 1486.';
-          artistDescription.textContent = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa quos deserunt totam deleniti vero, autem voluptatibus dolorum delectus eveniet. Labore, ex voluptates.'
-        }
-        else if (ev.target.textContent == 'Джованни ди Паоло') {
-          artistImg.src = 'img/gallery_img_6.jpg';
-          artistName.textContent = 'Джованни ди Паоло';
-          artistDate.textContent = '2 июня 1448 — 11 января 1466.';
-          artistDescription.textContent = 'Lorem ipsum dolor sit amet. Culpa molestiae reprehenderit sint aperiam in rem suscipit, nulla quos deserunt totam deleniti vero, autem voluptatibus dolorum delectus eveniet. Labore, ex voluptates.'
-        }
-        else if (ev.target.textContent == 'Джорджоне') {
-          artistImg.src = 'img/gallery_img_7.jpg';
-          artistName.textContent = 'Джорджоне';
-          artistDate.textContent = '2 июня 1448 — 11 января 1456.';
-          artistDescription.textContent = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa molestiae reprehenderit dolorum delectus eveniet. Labore, ex voluptates.'
-        }
-        else if (ev.target.textContent == 'Парентино, Бернардо') {
-          artistImg.src = 'img/gallery_img_6.jpg';
-          artistName.textContent = 'Парентино, Бернардо';
-          artistDate.textContent = '2 июня 1448 — 11 января 1467.';
-          artistDescription.textContent = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa consectetur adipisicing elit molestiae reprehenderit dolorum delectus eveniet. Labore, ex voluptates.'
-        }
-        else if (ev.target.textContent == 'Пезеллино') {
-          artistImg.src = 'img/gallery_img_5.jpg';
-          artistName.textContent = 'Пезеллино';
-          artistDate.textContent = '2 июня 1448 — 11 января 1456.';
-          artistDescription.textContent = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa molestiae reprehenderit dolorum delectus eveniet. Labore, ex voluptates.'
-        }
-        else if (ev.target.textContent == 'Пьетро Перуджино') {
-          artistImg.src = 'img/gallery_img_4.jpg';
-          artistName.textContent = 'Пьетро Перуджино';
-          artistDate.textContent = '2 июня 1448 — 11 января 1487.';
-          artistDescription.textContent = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore, ex voluptates. Culpa molestiae reprehenderit dolorum delectus sit amet, consectetur adipisicing sit amet, consectetur adipisicing eveniet. Labore, ex voluptates.'
-        }
-        else if (ev.target.textContent == 'Перуцци, Бальдассаре') {
-          artistImg.src = 'img/gallery_img_3.jpg';
-          artistName.textContent = 'Перуцци, Бальдассаре';
-          artistDate.textContent = '2 июня 1448 — 11 января 1486.';
-          artistDescription.textContent = 'Lorem ipsum dolor consectetur adipisicing sit amet, consectetur adipisicing elit. Culpa molestiae reprehenderit dolorum delectus consectetur adipisicing eveniet. Labore, ex voluptates.'
-        }
-        else if (ev.target.textContent == 'Пизанелло') {
-          artistImg.src = 'img/gallery_img_2.jpg';
-          artistName.textContent = 'Пизанелло';
-          artistDate.textContent = '2 июня 1448 — 11 января 1496.';
-          artistDescription.textContent = 'Lorem ipsum dolor sit molestiae reprehenderit dolorum amet, consectetur adipisicing elit. Culpa molestiae reprehenderit dolorum delectus eveniet. Labore, ex molestiae reprehenderit dolorum voluptates.'
-        }
-        else if (ev.target.textContent == 'Пинтуриккьо') {
-          artistImg.src = 'img/gallery_img_1.jpg';
-          artistName.textContent = 'Пинтуриккьо';
-          artistDate.textContent = '2 июня 1448 — 11 января 1449.';
-          artistDescription.textContent = 'Lorem ipsum dolor consectetur adipisicing elit sit amet, consectetur adipisicing elit. Culpa molestiae reprehenderit dolorum delectus consectetur adipisicing elit eveniet. Labore, ex voluptates.'
-        }
-        else if (ev.target.textContent == 'Бенедетто ди Биндо') {
-          artistImg.src = 'img/gallery_img_1.jpg';
-          artistName.textContent = 'Бенедетто ди Биндо';
-          artistDate.textContent = '2 июня 1448 — 11 января 1486.';
-          artistDescription.textContent = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa molestiae reprehenderit sint aperiam in rem suscipit, nulla quos deserunt totam deleniti vero. Labore, ex voluptates.'
-        }
-        else if (ev.target.textContent == 'Бергоньоне, Амброджо') {
-          artistImg.src = 'img/gallery_img_3.jpg';
-          artistName.textContent = 'Бергоньоне, Амброджо';
-          artistDate.textContent = '2 июня 1448 — 11 января 1456.';
-          artistDescription.textContent = 'Lorem ipsum elit. Culpa molestiae reprehenderit sint aperiam in rem suscipit, nulla quos deserunt totam deleniti vero, autem voluptatibus dolorum delectus eveniet. Labore, ex voluptates.'
-        }
-        else if (ev.target.textContent == 'Биссоло, Франческо') {
-          artistImg.src = 'img/gallery_img_4.jpg';
-          artistName.textContent = 'Биссоло, Франческо';
-          artistDate.textContent = '2 июня 1448 — 11 января 1486.';
-          artistDescription.textContent = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa molestiae reprehenderit sint aperiam in rem suscipit, nulla quos deserunt totam deleniti vero. Labore, ex voluptates.'
-        }
-        else if (ev.target.textContent == 'Больтраффио, Джованни') {
-          artistImg.src = 'img/gallery_img_5.jpg';
-          artistName.textContent = 'Больтраффио, Джованни';
-          artistDate.textContent = '2 июня 1448 — 11 января 1486.';
-          artistDescription.textContent = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa quos deserunt totam deleniti vero, autem voluptatibus dolorum delectus eveniet. Labore, ex voluptates.'
-        }
-        else if (ev.target.textContent == 'Бонсиньори, Франческо') {
-          artistImg.src = 'img/gallery_img_6.jpg';
-          artistName.textContent = 'Бонсиньори, Франческо';
-          artistDate.textContent = '2 июня 1448 — 11 января 1466.';
-          artistDescription.textContent = 'Lorem ipsum dolor sit amet. Culpa molestiae reprehenderit sint aperiam in rem suscipit, nulla quos deserunt totam deleniti vero, autem voluptatibus dolorum delectus eveniet. Labore, ex voluptates.'
-        }
-        else if (ev.target.textContent == 'Боттичини, Рафаэлло') {
-          artistImg.src = 'img/gallery_img_7.jpg';
-          artistName.textContent = 'Боттичини, Рафаэлло';
-          artistDate.textContent = '2 июня 1448 — 11 января 1456.';
-          artistDescription.textContent = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa molestiae reprehenderit dolorum delectus eveniet. Labore, ex voluptates.'
-        }
-        else if (ev.target.textContent == 'Брамантино') {
-          artistImg.src = 'img/gallery_img_6.jpg';
-          artistName.textContent = 'Брамантино';
-          artistDate.textContent = '2 июня 1448 — 11 января 1467.';
-          artistDescription.textContent = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa consectetur adipisicing elit molestiae reprehenderit dolorum delectus eveniet. Labore, ex voluptates.'
-        }
-        else if (ev.target.textContent == 'Бреа, Людовико') {
-          artistImg.src = 'img/gallery_img_5.jpg';
-          artistName.textContent = 'Бреа, Людовико';
-          artistDate.textContent = '2 июня 1448 — 11 января 1456.';
-          artistDescription.textContent = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa molestiae reprehenderit dolorum delectus eveniet. Labore, ex voluptates.'
-        }
-        else if (ev.target.textContent == 'Бьяджо д’Антонио Туччи') {
-          artistImg.src = 'img/gallery_img_4.jpg';
-          artistName.textContent = 'Бьяджо д’Антонио Туччи';
-          artistDate.textContent = '2 июня 1448 — 11 января 1487.';
-          artistDescription.textContent = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore, ex voluptates. Culpa molestiae reprehenderit dolorum delectus sit amet, consectetur adipisicing sit amet, consectetur adipisicing eveniet. Labore, ex voluptates.'
-        }
     };
 
 };
@@ -685,104 +559,104 @@ function changeArtistKey(ev) {
 
 //Header Search
 
-const headerSearch = document.querySelector('.search-button-tablet');
-const headerSearch768 = document.querySelector('.search-button-landscape');
-const headerSearch320 = document.querySelector('.search-button-mobile');
-const navSearch = document.querySelector('.search-input-tablet');
-const navSearch768 = document.querySelector('.search-input-landscape');
-const navSearch320 = document.querySelector('.search-input-mobile');
-const cont = document.querySelector('.search-form');
-const cont768 = document.querySelector('.search-form-landscape');
-const cont320 = document.querySelector('.search-form-mobile');
-const searchClose768 = document.querySelector('.search-close-landscape');
-const searchClose320 = document.querySelector('.search-close-mobile');
-const logoLink = document.querySelector('.logo-container__logo-link');
-const headerFormBox = document.querySelector('.search-form-container')
+// const headerSearch = document.querySelector('.search-button-tablet');
+// const headerSearch768 = document.querySelector('.search-button-landscape');
+// const headerSearch320 = document.querySelector('.search-button-mobile');
+// const navSearch = document.querySelector('.search-input-tablet');
+// const navSearch768 = document.querySelector('.search-input-landscape');
+// const navSearch320 = document.querySelector('.search-input-mobile');
+// const cont = document.querySelector('.search-form');
+// const cont768 = document.querySelector('.search-form-landscape');
+// const cont320 = document.querySelector('.search-form-mobile');
+// const searchClose768 = document.querySelector('.search-close-landscape');
+// const searchClose320 = document.querySelector('.search-close-mobile');
+// const logoLink = document.querySelector('.logo-container__logo-link');
+// const headerFormBox = document.querySelector('.search-form-container')
 
-navSearch.addEventListener('focus', () => {
-  headerSearch.classList.add('search__background');
-});
+// navSearch.addEventListener('focus', () => {
+//   headerSearch.classList.add('search__background');
+// });
 
-navSearch.addEventListener('blur', () => {
-  headerSearch.classList.remove('search__background');
-});
+// navSearch.addEventListener('blur', () => {
+//   headerSearch.classList.remove('search__background');
+// });
 
-headerSearch.addEventListener('click', (event) => {
-  if (headerSearch.getAttribute('type') == 'submit') {return};
-  searchToggle(event);
-});
+// headerSearch.addEventListener('click', (event) => {
+//   if (headerSearch.getAttribute('type') == 'submit') {return};
+//   searchToggle(event);
+// });
 
-headerSearch768.addEventListener('click', (event) => {
-  if (headerSearch768.getAttribute('type') == 'submit') {return};
-  searchToggle768(event);
-});
+// headerSearch768.addEventListener('click', (event) => {
+//   if (headerSearch768.getAttribute('type') == 'submit') {return};
+//   searchToggle768(event);
+// });
 
-searchClose768.addEventListener('click', (event) => {
-  searchToggle768(event);
-});
+// searchClose768.addEventListener('click', (event) => {
+//   searchToggle768(event);
+// });
 
-headerSearch320.addEventListener('click', (event) => {
-  if (headerSearch320.getAttribute('type') == 'submit') {return};
-  searchToggle320(event);
-});
+// headerSearch320.addEventListener('click', (event) => {
+//   if (headerSearch320.getAttribute('type') == 'submit') {return};
+//   searchToggle320(event);
+// });
 
-searchClose320.addEventListener('click', (event) => {
-  searchToggle320(event);
-});
+// searchClose320.addEventListener('click', (event) => {
+//   searchToggle320(event);
+// });
 
-function searchToggle(ev) {
-  ev.preventDefault();
-  if (!cont.classList.contains('search__show')) {
-    cont.classList.add('search__show');
-    navSearch.setAttribute('tabindex', '0');
-  }
-  else {
-    cont.classList.remove('search__show');
-    navSearch.setAttribute('tabindex', '-1');
-  };
-};
+// function searchToggle(ev) {
+//   ev.preventDefault();
+//   if (!cont.classList.contains('search__show')) {
+//     cont.classList.add('search__show');
+//     navSearch.setAttribute('tabindex', '0');
+//   }
+//   else {
+//     cont.classList.remove('search__show');
+//     navSearch.setAttribute('tabindex', '-1');
+//   };
+// };
 
-function searchToggle768(ev) {
-  ev.preventDefault();
-  if (!cont768.classList.contains('search__show')) {
-    cont768.classList.add('search__show');
-    burger.classList.add('search__hidden');
-    headerSearch768.setAttribute('type', 'submit');
-    searchClose768.classList.add('search__visible');
-    searchClose768.setAttribute('tabindex', '0');
-    logoLink.classList.add('logo-link_move');
-    navSearch768.setAttribute('tabindex', '0');
-  }
-  else {
-    cont768.classList.remove('search__show');
-    burger.classList.remove('search__hidden');
-    headerSearch768.setAttribute('type', 'button');
-    searchClose768.classList.remove('search__visible');
-    searchClose768.setAttribute('tabindex', '-1');
-    logoLink.classList.remove('logo-link_move');
-    navSearch768.setAttribute('tabindex', '-1');
-  };
-};
+// function searchToggle768(ev) {
+//   ev.preventDefault();
+//   if (!cont768.classList.contains('search__show')) {
+//     cont768.classList.add('search__show');
+//     burger.classList.add('search__hidden');
+//     headerSearch768.setAttribute('type', 'submit');
+//     searchClose768.classList.add('search__visible');
+//     searchClose768.setAttribute('tabindex', '0');
+//     logoLink.classList.add('logo-link_move');
+//     navSearch768.setAttribute('tabindex', '0');
+//   }
+//   else {
+//     cont768.classList.remove('search__show');
+//     burger.classList.remove('search__hidden');
+//     headerSearch768.setAttribute('type', 'button');
+//     searchClose768.classList.remove('search__visible');
+//     searchClose768.setAttribute('tabindex', '-1');
+//     logoLink.classList.remove('logo-link_move');
+//     navSearch768.setAttribute('tabindex', '-1');
+//   };
+// };
 
-function searchToggle320(ev) {
-  ev.preventDefault();
-  if (!cont320.classList.contains('search__show')) {
-    cont320.classList.add('search__show');
-    headerSearch.setAttribute('type', 'submit');
-    searchClose320.classList.add('search__visible');
-    searchClose320.setAttribute('tabindex', '0');
-    headerFormBox.classList.add('search-form-container_move');
-    navSearch320.setAttribute('tabindex', '0');
-  }
-  else {
-    cont320.classList.remove('search__show');
-    headerSearch.setAttribute('type', 'button');
-    searchClose320.classList.remove('search__visible');
-    searchClose320.setAttribute('tabindex', '-1');
-    headerFormBox.classList.remove('search-form-container_move');
-    navSearch320.setAttribute('tabindex', '-1');
-  };
-};
+// function searchToggle320(ev) {
+//   ev.preventDefault();
+//   if (!cont320.classList.contains('search__show')) {
+//     cont320.classList.add('search__show');
+//     headerSearch.setAttribute('type', 'submit');
+//     searchClose320.classList.add('search__visible');
+//     searchClose320.setAttribute('tabindex', '0');
+//     headerFormBox.classList.add('search-form-container_move');
+//     navSearch320.setAttribute('tabindex', '0');
+//   }
+//   else {
+//     cont320.classList.remove('search__show');
+//     headerSearch.setAttribute('type', 'button');
+//     searchClose320.classList.remove('search__visible');
+//     searchClose320.setAttribute('tabindex', '-1');
+//     headerFormBox.classList.remove('search-form-container_move');
+//     navSearch320.setAttribute('tabindex', '-1');
+//   };
+// };
 
 //Burger
 
@@ -834,78 +708,12 @@ for (const tab of burgerTabs) {
   });
 };
 
-// Gallery Selector
-
-const gallerySelector = document.querySelector('.gallery-filter__list');
-const items = document.querySelectorAll('.gallery-filter__list-item:not(:first-child');
-const icon = document.querySelector('.gallery-filter__list-item-icon');
-
-gallerySelector.addEventListener('click', toggleSelector);
-gallerySelector.addEventListener('click', select);
-gallerySelector.addEventListener('keydown', (event) => {
-  if (event.code == 'Enter' || event.code == 'Space') {
-    event.preventDefault();
-    toggleSelector();
-  };
-});
-gallerySelector.addEventListener('keydown', (event) => {
-  if (event.code == 'Enter' || event.code == 'Space') {
-    event.preventDefault();
-    select(event);
-  };
-});
-
-
-function toggleSelector() {
-    for (let item of items) {
-        if (item.classList.contains('hide')) {
-          item.classList.remove('hide');
-          icon.classList.add('gallery__icon__rotate');
-          item.setAttribute('tabindex', '0');
-        }
-        else if (!item.classList.contains('hide')) {
-          item.classList.add('hide');
-          icon.classList.remove('gallery__icon__rotate');
-          item.setAttribute('tabindex', '-1');
-        };
-    };
-};
-
-function select(ev) {
-
-    if (ev.target == gallerySelector || ev.target == document.querySelector('.gallery-filter__list-item:first-child')) {return}
-
-    const firstItem = document.querySelector('.gallery-filter__list-item:first-child');
-    const choice = ev.target.firstChild.textContent;
-    ev.target.firstChild.textContent = firstItem.firstChild.textContent;
-    firstItem.firstChild.textContent = choice;
-    for (let item of items) {
-      item.classList.add('hide');
-    };
-    gallerySelector.focus();
-
-};
-
-gallerySelector.addEventListener('focusout', (event) => {
-  if (gallerySelector.contains(event.relatedTarget)) {
-    return;
-  }
-  for (const item of items) {
-    if (item.classList.contains('hide')) {
-      return;
-    }
-    else {
-      toggleSelector()
-    }
-  }
-});
-
 // Public Spoiler
 
 const checkboxHead = document.querySelector('.check-head');
 const spoiler = document.querySelector('.checkbox-container');
 const spoilerItems = document.querySelectorAll('.label');
-const spoilerFilter = document.querySelector('.choices-list')
+const spoilerFilter = document.querySelector('.public-choices-list')
 
 function toggleSpoiler() {
   spoiler.classList.toggle('checkbox-container_opened');
@@ -915,7 +723,7 @@ function toggleSpoiler() {
 function filterChoices(ev) {
   if (spoilerFilter.children.length == 0) return;
 
-  const filterItems = document.querySelectorAll('.choices__item');
+  const filterItems = document.querySelectorAll('.public-choices__item');
   for (const item of filterItems) {
     if (ev.target == item) {
       for (const spoilerItem of spoilerItems) {
@@ -941,10 +749,10 @@ function checkState() {
       const newCheckbox = document.createElement('div');
       const newText = document.createElement('span');
       const newClose = document.createElement('div');
-      newFilter.classList.add('choices__item');
-      newCheckbox.classList.add('choices__checkbox');
+      newFilter.classList.add('public-choices__item');
+      newCheckbox.classList.add('public-choices__checkbox');
       newText.textContent = itemText;
-      newClose.classList.add('choices__close');
+      newClose.classList.add('public-choices__close');
       newFilter.append(newCheckbox);
       newFilter.append(newText);
       newFilter.append(newClose);
@@ -954,7 +762,7 @@ function checkState() {
 
     if (spoilerFilter.children.length == 0) continue;
 
-    const filterItems = document.querySelectorAll('.choices__item');
+    const filterItems = document.querySelectorAll('.public-choices__item');
     for (const filterItem of filterItems) {
       if (item.firstElementChild.checked == false && item.classList.contains('checkbox_hide') && filterItem.textContent == item.innerText.trim()) {
         item.classList.remove('checkbox_hide');
@@ -1022,6 +830,14 @@ tippy('#fourthTooltip', {
   offset: [0, 12],
   theme: 'light',
 });
+
+// Choices Gallery
+
+const gallerySelector = document.querySelector('.gallery-filter__list');
+const choices = new Choices(gallerySelector, {
+  searchEnabled: false,
+});
+
 
 // Outside The Selectors
 
