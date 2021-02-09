@@ -11,18 +11,20 @@
 	href="https://unpkg.com/simplebar@latest/dist/simplebar.css"
 	/>
   <link rel="stylesheet" href="css/jquery-ui.min.css">
-
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">
 	<link rel="stylesheet" href="css/style.css">
 	<script src="js/jquery.js" defer></script>
 	<script src="js/jquery-ui.min.js" defer></script>
-	<script src="js/swiper-bundle.min.js" defer></script>
+  <script src="js/swiper-bundle.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js" defer></script>
 	<script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js" defer></script>
 	<script src="js/inputmask.min.js" defer></script>
   <script src="js/just-validate.min.js" defer></script>
   <script src="https://unpkg.com/@popperjs/core@2" defer></script>
   <script src="https://unpkg.com/tippy.js@6" defer></script>
-	<script src="https://api-maps.yandex.ru/2.1/?apikey=вашAPI-ключ&lang=ru_RU" defer></script>
-	<script src="js/main.js" defer></script>
+  <script src="node_modules/focus-visible/dist/focus-visible.min.js" defer></script>
+  <script src="https://api-maps.yandex.ru/2.1/?apikey=вашAPI-ключ&lang=ru_RU" defer></script>
+	<script type="module" src="js/main.js" defer></script>
 </head>
 <body>
 
@@ -34,9 +36,7 @@
 				<div class="container nav-container">
           <button class="burger tablet" aria-label="Бургер"></button>
           <h1 class="visually-hidden">Blanchard - художественная галерея</h1>
-					<div class="logo-container">
-						<a class="logo-container__logo-link" href=""><img src="img/logo_header.svg" alt="Logo"></a>
-          </div>
+					<a class="logo-container__logo-link" href=""><img src="img/logo_header.svg" alt="Logo"></a>
           <div class="nav-menu">
 					  <ul class="nav-list">
 					  	<li class="nav-list__item"><a class="nav-list__item-link nav-about" href="">О нас</a></li>
@@ -49,29 +49,10 @@
 					  </ul>
             <a class="login-header-link" href="">Войти</a>
           </div>
-          <div class="search-form-container tablet">
-
-            <!--320-->
-
-            <form tabindex="-1" class="search-form-mobile mobile_flex">
-              <button class="search-button-mobile" type="button" value=""></button>
-              <input tabindex="-1" type="text" class="search-input-mobile" placeholder="Поиск по сайту">
-              <button tabindex="-1" class="search-close search-close-mobile"></button>
-            </form>
-
-            <!--768-->
-
-            <form tabindex="-1" class="search-form-landscape landscape_flex mobile_hide">
-              <button class="search-button-landscape" type="button" value=""></button>
-              <input tabindex="-1" type="text" class="search-input-landscape" placeholder="Поиск по сайту">
-              <button tabindex="-1" class="search-close search-close-landscape"></button>
-            </form>
-
-            <!---->
-
-            <form tabindex="-1" class="search-form landscape_hide">
-              <button class="search-button-tablet" type="button" value=""></button>
-              <input tabindex="-1" type="text" class="search-input-tablet" placeholder="Поиск по сайту">
+          <div class="search-form-container">
+            <form class="search-form">
+              <button class="search-button" type="submit"></button>
+              <input type="text" class="search-input" placeholder="Поиск по сайту">
             </form>
           </div>
 				</div>
@@ -175,10 +156,6 @@
 							</div>
 						</li>
 					</ul>
-					<form tabindex="0" class="search-form">
-						<input tabindex="-1" type="submit" class="search-button" value="">
-						<input type="text" class="search-input" placeholder="Поиск по сайту">
-					</form>
 				</div>
 			</div>
 		</nav>
@@ -190,11 +167,7 @@
 
 		<!--Hero block-->
 
-		<div class="hero-container">
-			<div class="hero-container__background-container">
-				<div class="hero-container__background"></div>
-			</div>
-		</div>
+		<div class="hero-container"></div>
 		<div class="container">
 			<div class="hero-text">
 				<h2 class="hero-text__head">
@@ -228,11 +201,11 @@
 				  <div class="gallery-filter">
 				  	<h2 id="gallery" class="gallery-filter__head">Галерея</h2>
 				  	<p class="gallery-filter__text">Фильтровать по:</p>
-				  	<ul tabindex="0" class="gallery-filter__list">
-				  		<li class="gallery-filter__list-item">Автор<img class="gallery-filter__list-item-icon" src="img/header_second_row_icon.svg" alt=""></li>
-				  		<li tabindex="-1" class="gallery-filter__list-item hide">Направление</li>
-				  		<li tabindex="-1" class="gallery-filter__list-item hide">Техника</li>
-				  	</ul>
+				  	<select class="gallery-filter__list">
+				  		<option class="gallery-filter__list-item">Автор</option>
+				  		<option class="gallery-filter__list-item hide">Направление</option>
+				  		<option class="gallery-filter__list-item hide">Техника</option>
+            </select>
           </div>
           <div class="gallery-description landscape_hide">
             Вам предоставляется 10 бесплатных скачиваний. Для увеличения количества скачиваний <a class="gallery-description__link" href="">авторизуйтесь,</a> либо воспользуйтесь лицензией.
@@ -301,7 +274,7 @@
 		  		</div>
 		  		<div id="accordion" class="period">
 		  			<h3 class="period__head"><span class="period__head-span">C 1400 по 1499 гг.</span><span class="period-head__circle"></span></h3>
-		  			<div>
+		  			<div class="accordion-box">
 		  				<ul class="period-people period-people-italy">
 		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Бенедетто ди Биндо</span></li>
 		  					<li class="period-people__artist"><span tabindex="0" class="period-people__artist-span">Бергоньоне, Амброджо</span></li>
@@ -590,8 +563,8 @@
             <h2 id="public" class="public__head">Издания</h2>
 
             <h4 class="check-head" data-mobile="false">Категории</h4>
-            <div class="choices mobile">
-              <ul class="choices-list"></ul>
+            <div class="public-choices mobile">
+              <ul class="public-choices-list"></ul>
             </div>
 						<div class="checkbox-container" data-mobile="false">
 							<label class="label" for="check">
