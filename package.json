@@ -1,0 +1,21 @@
+{
+  "name": "blanchard",
+  "version": "1.0.0",
+  "description": "Blanchard landing page",
+  "main": "main.js",
+  "dependencies": {
+    "focus-visible": "^5.2.0"
+  },
+  "devDependencies": {
+    "choices.js": "^9.0.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "blanchard",
+    "landing"
+  ],
+  "author": "Paul Oidntsov",
+  "license": "MIT"
+}
