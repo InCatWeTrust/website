@@ -255,7 +255,7 @@ input::placeholder {
 	padding: 0;
 	overflow: hidden;
 	border: 0;
-	clip: rect(0 0 0 0)
+	clip: rect(0 0 0 0);
 }
 
 .logo-container__logo-link {
@@ -551,17 +551,20 @@ input::placeholder {
 	border-bottom: 1px solid var(--lightPurple);
 }
 
-.search-form:not(:active):not(:focus):hover .search-button {
+.search-form:hover .search-button {
 	background-image: url('../img/search_icon_purple.svg');
-}
-
-.search-form:focus {
-	outline: 2px solid var(--darkPurple);
-	outline-offset: 4px;
 }
 
 .search-input:focus {
 	color: var(--lightPurple);
+}
+
+.search-input:focus .search-button {
+	background-image: url('../img/search_icon_purple.svg');
+}
+
+.search__background {
+	background-image: url('../img/search_icon_purple.svg');
 }
 
 /*Hero block*/
@@ -1477,10 +1480,12 @@ input:focus:focus-visible ~ .label__text {
 
 .label__span {
 	transition: border-color 300ms ease;
+  pointer-events: none;
 }
 
 .label__text {
 	transition: color 300ms ease;
+  pointer-events: none;
 }
 
 #check + .label__span,
@@ -2623,10 +2628,6 @@ input:focus:focus-visible ~ .label__text {
 	color: var(--lightPurple);
 }
 
-.search__background {
-	background-image: url('../img/search_icon_purple.svg');
-}
-
 /*Hero Block 1024*/
 
 .hero-container {
@@ -3678,12 +3679,7 @@ input:focus:focus-visible ~ .label__text {
 }
 
 .checkbox-container {
-	position: absolute;
 	height: unset;
-	transform-origin: top;
-	transform: scaleY(0);
-	transition: transform 300ms ease;
-	z-index: 2;
 }
 
 .check-head {
@@ -3754,17 +3750,12 @@ input:focus:focus-visible ~ .label__text {
 	padding-bottom: 10px;
 	margin: 0;
 	border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-	background-color: rgba(0, 0, 0, 0.8);
 	cursor: pointer;
 	outline: none;
 }
 
 #check + .label__span, #check2 + .label__span, #check3 + .label__span, #check4 + .label__span, #check5 + .label__span, #check6 + .label__span, #check7 + .label__span, #check8 + .label__span, #check9 + .label__span, #check10 + .label__span, #check11 + .label__span, #check12 + .label__span {
 	top: 11px;
-}
-
-.checkbox-container_opened {
-	transform: scaleY(1);
 }
 
 .checkbox_hide {

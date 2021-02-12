@@ -559,10 +559,10 @@ function changeArtistKey(ev) {
 
 //Header Search
 
-// const headerSearch = document.querySelector('.search-button-tablet');
+// const headerSearch = document.querySelector('.search-button');
 // const headerSearch768 = document.querySelector('.search-button-landscape');
 // const headerSearch320 = document.querySelector('.search-button-mobile');
-// const navSearch = document.querySelector('.search-input-tablet');
+// const navSearch = document.querySelector('.search-input');
 // const navSearch768 = document.querySelector('.search-input-landscape');
 // const navSearch320 = document.querySelector('.search-input-mobile');
 // const cont = document.querySelector('.search-form');
@@ -713,63 +713,30 @@ for (const tab of burgerTabs) {
 const checkboxHead = document.querySelector('.check-head');
 const spoiler = document.querySelector('.checkbox-container');
 const spoilerItems = document.querySelectorAll('.label');
-const spoilerFilter = document.querySelector('.public-choices-list')
 
 function toggleSpoiler() {
-  spoiler.classList.toggle('checkbox-container_opened');
+
   checkboxHead.classList.toggle('check-head_active');
-}
-
-function filterChoices(ev) {
-  if (spoilerFilter.children.length == 0) return;
-
-  const filterItems = document.querySelectorAll('.public-choices__item');
-  for (const item of filterItems) {
-    if (ev.target == item) {
-      for (const spoilerItem of spoilerItems) {
-        if (spoilerItem.innerText.trim() == item.textContent) {
-          spoilerItem.classList.remove('checkbox_hide');
-          spoilerItem.firstElementChild.checked = false;
-          item.remove();
-        };
-      };
+  if (!checkboxHead.classList.contains('check-head_active')) {
+    checkState();
+  }
+  else {
+    for (const item of spoilerItems) {
+      item.classList.remove('checkbox_hide');
     };
   };
-};
 
-spoilerFilter.addEventListener('click', filterChoices);
+};
 
 function checkState() {
 
   for (const item of spoilerItems) {
 
-    if (item.firstElementChild.checked == true && !item.classList.contains('checkbox_hide')) {
-      const itemText = item.innerText.trim();
-      const newFilter = document.createElement('li');
-      const newCheckbox = document.createElement('div');
-      const newText = document.createElement('span');
-      const newClose = document.createElement('div');
-      newFilter.classList.add('public-choices__item');
-      newCheckbox.classList.add('public-choices__checkbox');
-      newText.textContent = itemText;
-      newClose.classList.add('public-choices__close');
-      newFilter.append(newCheckbox);
-      newFilter.append(newText);
-      newFilter.append(newClose);
-      spoilerFilter.append(newFilter);
+    if (!item.firstElementChild.checked) {
       item.classList.add('checkbox_hide');
     };
-
-    if (spoilerFilter.children.length == 0) continue;
-
-    const filterItems = document.querySelectorAll('.public-choices__item');
-    for (const filterItem of filterItems) {
-      if (item.firstElementChild.checked == false && item.classList.contains('checkbox_hide') && filterItem.textContent == item.innerText.trim()) {
-        item.classList.remove('checkbox_hide');
-        filterItem.remove();
-      };
-    };
   };
+
 };
 
 function checkboxSpoiler() {
@@ -777,7 +744,11 @@ function checkboxSpoiler() {
   if (window.innerWidth <= 760 && checkboxHead.dataset.mobile == 'false') {
     spoiler.dataset.mobile = 'true';
     checkboxHead.addEventListener('click', toggleSpoiler);
-    spoiler.addEventListener('click', checkState);
+    spoiler.addEventListener('click', () => {
+      if (!checkboxHead.classList.contains('check-head_active')) {
+        checkState();
+      };
+    });
     checkState();
 
     checkboxHead.dataset.mobile = 'true';
@@ -786,7 +757,6 @@ function checkboxSpoiler() {
     checkboxHead.dataset.mobile = 'false';
     if (spoiler.dataset.mobile == 'true') {
       checkboxHead.removeEventListener('click', toggleSpoiler);
-      spoiler.removeEventListener('click', checkState);
     };
   };
 
