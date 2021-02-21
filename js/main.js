@@ -1,5 +1,3 @@
-import {artistsBio} from './artists.js';
-
 // Events Swow All Button
 
 const btn = document.querySelector('.button-container__all-events');

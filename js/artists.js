@@ -1,4 +1,4 @@
-export const artistsBio = [
+const artistsBio = [
   {
     name: 'Доменико Гирландайо',
     img: 'img/Domenico.jpg',
