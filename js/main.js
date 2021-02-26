@@ -432,7 +432,7 @@ const searchField = document.querySelector('.search-input');
 const searchButton = document.querySelector('.search-button');
 
 searchField.addEventListener('focus', () => {
-    searchButton.style.backgroundImage = 'url(../img/search_icon_purple.svg)';
+    searchButton.style.backgroundImage = 'url(./img/search_icon_purple.svg)';
 });
 
 searchField.addEventListener('blur', () => {
